@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="Calculate your total marks and percentage in seconds with SmartEarn's free marks percentage calculator.">
+  <title>SmartEarn — Marks & Percentage Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="SmartEarn home"><span class="brand-mark">S</span><span>Smart<span class="brand-accent">Earn</span></span></a>
+    <span class="header-pill">Free student tool</span>
+  </header>
+  <main class="page-shell">
+    <section class="hero">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> STUDY SMARTER</p>
+      <h1>Your marks, made <span>simple.</span></h1>
+      <p class="hero-copy">Calculate your total, percentage, and the marks you need for your target. Free to use, no sign-up, and your numbers stay in your browser.</p>
+      <div class="trust-row"><span>✓ Instant results</span><span>✓ Mobile friendly</span><span>✓ No data stored</span></div>
+    </section>
+    <section class="calculator-card" id="calculator" aria-labelledby="calc-title">
+      <div class="card-heading">
+        <div><p class="section-kicker">YOUR SCORE SHEET</p><h2 id="calc-title">Marks calculator</h2></div>
+        <button id="reset" class="button button-quiet" type="button">Reset</button>
+      </div>
+      <p class="helper">Enter marks scored and the maximum marks for each subject.</p>
+      <div class="subjects-head" aria-hidden="true"><span>Subject</span><span>Marks scored</span><span>Out of</span><span></span></div>
+      <div id="subjects" class="subjects">
+        <div class="subject-row">
+          <label class="sr-only" for="subject-1">Subject 1 name</label><input id="subject-1" name="subject-name" type="text" value="Subject 1" maxlength="50" placeholder="Subject name">
+          <label class="sr-only" for="scored-1">Marks scored for subject 1</label><input id="scored-1" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 78">
+          <label class="sr-only" for="possible-1">Maximum marks for subject 1</label><input id="possible-1" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 100">
+          <button class="remove-row" type="button" aria-label="Remove subject 1" disabled>×</button>
+        </div>
+        <div class="subject-row">
+          <label class="sr-only" for="subject-2">Subject 2 name</label><input id="subject-2" name="subject-name" type="text" value="Subject 2" maxlength="50" placeholder="Subject name">
+          <label class="sr-only" for="scored-2">Marks scored for subject 2</label><input id="scored-2" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 82">
+          <label class="sr-only" for="possible-2">Maximum marks for subject 2</label><input id="possible-2" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 100">
+          <button class="remove-row" type="button" aria-label="Remove subject 2">×</button>
+        </div>
+        <div class="subject-row">
+          <label class="sr-only" for="subject-3">Subject 3 name</label><input id="subject-3" name="subject-name" type="text" value="Subject 3" maxlength="50" placeholder="Subject name">
+          <label class="sr-only" for="scored-3">Marks scored for subject 3</label><input id="scored-3" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 91">
+          <label class="sr-only" for="possible-3">Maximum marks for subject 3</label><input id="possible-3" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 100">
+          <button class="remove-row" type="button" aria-label="Remove subject 3">×</button>
+        </div>
+      </div>
+      <button id="add-subject" class="button button-outline" type="button">＋ Add another subject</button>
+      <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+      <button id="calculate" class="button button-primary" type="button">Calculate my percentage <span aria-hidden="true">→</span></button>
+      <div id="results" class="results" aria-live="polite" aria-atomic="true">
+        <div class="result-main"><div><p class="result-label">YOUR PERCENTAGE</p><div class="percentage-line"><span id="percentage-result">—</span><span class="percent-sign">%</span></div></div><div class="result-icon" aria-hidden="true">↗</div></div>
+        <div class="result-stats"><div><span>Total marks</span><strong id="total-result">— / —</strong></div><div><span>Subjects counted</span><strong id="count-result">—</strong></div></div>
+      </div>
+      <div class="target-box">
+        <label for="target-percentage">Have a target percentage?</label>
+        <div class="target-input-wrap"><input id="target-percentage" type="number" min="0" max="100" step="any" placeholder="e.g. 85"><span>%</span></div>
+        <p id="target-message" class="target-message">Calculate your marks first to see your target status.</p>
+      </div>
+      <p class="fine-print">This tool calculates a weighted percentage from the marks entered. Grading, rounding, and CGPA conversion rules can vary by school, board, or university.</p>
+      <div class="action-row"><button id="print" class="button button-quiet" type="button">Print / Save as PDF</button></div>
+    </section>
+    <section class="info-grid" aria-label="How it works">
+      <article class="info-card"><span class="info-number">01</span><h3>Add your subjects</h3><p>Enter the marks you scored and the maximum marks for each subject.</p></article>
+      <article class="info-card"><span class="info-number">02</span><h3>Get your percentage</h3><p>We add all scored marks and divide by the total possible marks.</p></article>
+      <article class="info-card"><span class="info-number">03</span><h3>Plan your target</h3><p>Enter a goal to check whether you have reached it based on your current entries.</p></article>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">S</span><span>Smart<span class="brand-accent">Earn</span></span></a><p>Simple tools for your next step.</p><p class="footer-note">Free to use · Your marks are processed locally in your browser</p></footer>
+</body>
+</html>
