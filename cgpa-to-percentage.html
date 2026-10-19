@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43"><meta name="description" content="Convert CGPA to an estimated percentage with selectable conversion formulas. Check your institution's grading rules with Calcora's free converter.">
+<link rel="canonical" href="https://abulques263-dotcom.github.io/makecv/cgpa-to-percentage.html">
+<title>CGPA to Percentage Converter | Calcora</title>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="tools.css">
+<script src="tools.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#tool-form">Skip to calculator</a>
+<header class="site-header"><a class="brand" href="index.html" aria-label="Calcora home"><span class="brand-mark">C</span><span>Calcora</span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html">Percentage</a><a href="cgpa-to-percentage.html">CGPA</a><a href="required-marks.html">Required marks</a><a href="average-marks.html">Average</a><a href="grade-calculator.html">Grade</a></nav><span class="header-pill">Free online tools</span></header>
+<main class="tool-page">
+<section class="tool-hero"><p class="eyebrow"><span class="eyebrow-dot"></span> CALCORA FREE TOOLS</p><h1>CGPA to Percentage Converter</h1><p>Convert your CGPA using a selectable formula. Conversion rules vary by school and university, so choose the scale that matches your grading policy.</p></section>
+<section class="tool-card" aria-label="CGPA to Percentage Converter">
+<form id="tool-form" class="tool-form" data-tool="cgpa">
+<div class="field"><label for="cgpa">Your CGPA</label><input id="cgpa" type="number" min="0" step="any" placeholder="e.g. 8.2" required></div><div class="field"><label for="scale">Conversion formula</label><select id="scale"><option value="cbse95">CGPA × 9.5 (CBSE-style example)</option><option value="linear10">10-point linear scale (× 10)</option><option value="linear4">4-point linear scale (× 25)</option><option value="custom">Custom multiplier</option></select></div><div id="custom-fields" class="field-grid" hidden><div class="field"><label for="custom-max">Maximum CGPA</label><input id="custom-max" type="number" min="0.01" step="any" placeholder="e.g. 10"></div><div class="field"><label for="custom-multiplier">Multiplier</label><input id="custom-multiplier" type="number" min="0.01" step="any" placeholder="e.g. 9.5"></div></div>
+<p id="tool-error" class="tool-error" role="alert" aria-live="polite"></p>
+<div class="tool-actions"><button class="button button-primary" type="submit">Calculate result →</button><button class="button button-quiet" type="reset" onclick="document.getElementById('tool-result').hidden=true;document.getElementById('tool-error').textContent=''">Reset</button></div>
+</form>
+<section id="tool-result" class="tool-result" aria-live="polite" hidden><h2>Your result</h2><output id="tool-output"></output><p id="tool-detail"></p></section>
+</section>
+<section class="content-section"><h2>How to use this calculator</h2><ol><li>Enter your CGPA.</li><li>Select the conversion formula or enter a custom maximum and multiplier.</li><li>Calculate and compare the result with your institution's official guidance.</li></ol><div class="formula-note">Formula examples: CGPA × 9.5, CGPA ÷ 10 × 100, or CGPA ÷ 4 × 100. These are not interchangeable official rules. Use the formula specified by your institution.</div></section>
+<section class="content-section"><h2>Frequently asked questions</h2><h3>Is one CGPA formula valid for every university?</h3><p>No. Conversion methods differ. This tool shows an estimate for the formula you select; check your transcript guidance or university policy.</p><h3>Can I use a 4-point CGPA?</h3><p>Yes. Select the 4-point linear example and enter a CGPA from 0 to 4, if that formula suits your institution.</p><h3>Does Calcora store my CGPA?</h3><p>The calculator runs in your browser and does not need an account. Avoid entering private information into any public website.</p></section>
+<section class="content-section"><h2>More free calculators</h2><div class="tool-links"><a class="tool-link-card" href="index.html"><strong>Percentage Calculator</strong><span>Calculate total marks and percentage.</span></a><a class="tool-link-card" href="cgpa-to-percentage.html"><strong>CGPA to Percentage</strong><span>Choose a conversion formula.</span></a><a class="tool-link-card" href="required-marks.html"><strong>Required Marks</strong><span>Estimate marks needed for a target.</span></a><a class="tool-link-card" href="average-marks.html"><strong>Average Marks</strong><span>Find the mean of several marks.</span></a><a class="tool-link-card" href="grade-calculator.html"><strong>Grade Calculator</strong><span>Estimate a grade from a percentage.</span></a></div></section>
+</main>
+<footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-mark">C</span><span>Calcora</span></a><p>Smart Calculations. Simple Solutions.</p><p class="footer-note">Free to use · Calculations run in your browser</p><p class="footer-note"><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a></p></footer>
+</body></html>
