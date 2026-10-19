@@ -35,3 +35,17 @@
 4. Test calculations, empty/invalid/boundary inputs, and responsive layouts.
 5. Add remaining tools, About, Contact, and Privacy Policy after Phase 1 verification.
 6. Check Google Search Console/indexing and possible monetization later. Search ranking and income are not guaranteed.
+
+### Phase 1 implementation started — 2026-10-19
+- Added shared `tools.css` styles for standalone calculator pages.
+- Added `tools.js` client-side calculation handlers for selectable CGPA conversion, required marks, average marks, and grade estimation.
+- Added individual pages:
+  - `cgpa-to-percentage.html`
+  - `required-marks.html`
+  - `average-marks.html`
+  - `grade-calculator.html`
+- Updated homepage to link to Phase 1 tools and added a canonical URL.
+- Each new page includes a unique title, meta description, canonical URL, instructions, formula caveat, FAQs, and links to related calculators.
+- Grade boundaries and CGPA formulas are labelled as examples; users are told to check official institutional rules.
+- Verification so far: GitHub file contents were fetched successfully after writes. Automated browser testing and live GitHub Pages deployment status are not yet verified.
+- Still to do: thoroughly test calculations and accessibility, finish unique metadata for the homepage, add the remaining supporting pages/tools, generate/verify sitemap and robots.txt, and check Search Console/indexing.
