@@ -1,6 +1,6 @@
-# SmartEarn — Marks & Percentage Calculator
+# Calcora — Marks & Percentage Calculator
 
-A free, responsive calculator for students. Built with plain HTML, CSS, and JavaScript—no framework, backend, database, or API key.
+A free, responsive marks and percentage calculator. Brand: Calcora. Tagline: Smart Calculations. Simple Solutions. Built with plain HTML, CSS, and JavaScript—no framework, backend, database, or API key.
 
 ## Files
 - `index.html` — accessible page structure and content
