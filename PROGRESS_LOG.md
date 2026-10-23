@@ -72,3 +72,10 @@
 - Source files are committed and will be re-fetched to verify. Browser testing and live deployment are not claimed as verified.
 
 - Follow-up source validation found and corrected a JavaScript branch-boundary syntax issue in the new tool handlers before calling the implementation complete.
+
+
+### Technical SEO foundation — 2026-10-24
+- Added `sitemap.xml` listing the homepage and the nine calculator pages currently in the project.
+- Added `robots.txt` allowing public crawling and pointing crawlers to the sitemap URL.
+- This improves crawl discovery but does not guarantee indexing or rankings. Sitemap availability and the live Pages deployment still need to be checked after publishing.
+- Next recommended step: validate calculator behavior in a real browser, then create a Search Console property and submit the sitemap once the live site is stable.
