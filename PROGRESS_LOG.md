@@ -87,3 +87,10 @@
 - Privacy page explains browser-side calculator processing and notes that GitHub Pages may process technical request data; it links to GitHub's privacy statement.
 - Updated `sitemap.xml` to include these three pages.
 - Remaining: verify the live pages, test actual browser behavior, and submit sitemap through Search Console after confirming publication.
+
+
+### Site-wide metadata and footer link audit — 2026-10-24
+- Re-fetched all 13 HTML pages from the repository.
+- Source-level audit confirms every page has a title, meta description, and canonical URL on the expected GitHub Pages domain.
+- Confirmed all 13 pages link to About, Contact, and Privacy Policy in their footer.
+- This checks repository source only; it does not establish that GitHub Pages has finished deploying or that a real browser renders every page correctly.
