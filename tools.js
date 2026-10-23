@@ -49,7 +49,7 @@
       if(scale==="us"){grade=pct>=90?"A":pct>=80?"B":pct>=70?"C":pct>=60?"D":"F";}
       else {grade=pct>=90?"A":pct>=80?"B":pct>=70?"C":pct>=60?"D":pct>=50?"E":"F";}
       success(grade+" ("+fmt(pct)+"%)",scale==="us"?"Using the selected example scale: A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, F < 60.":"Using the selected example scale: A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, E ≥ 50, F < 50. Change this to match your school or course rules.");
- else if(tool==="discount"){
+    } else if(tool==="discount"){
       const price=num("price"), discount=num("discount");
       if(!positive(price)||discount===null||discount<0||discount>100){fail("Enter a price greater than zero and a discount between 0% and 100%.");return;}
       const saved=price*discount/100, finalPrice=price-saved;
@@ -84,7 +84,7 @@
       if(!Number.isFinite(exam)){fail("Choose a valid exam date.");return;}
       const diff=Math.round((exam-today)/86400000);
       success(diff>0?fmt(diff)+" days to go":diff===0?"Your exam is today":fmt(Math.abs(diff))+" days ago",diff>0?"Use this countdown to plan your revision schedule.":diff===0?"Good luck with your exam.":"This date is in the past; choose a future date for a countdown.");
-    }    }
+    }
   });
   const scale=$("scale");
   if(scale){const custom=$("custom-fields");const sync=()=>{custom.hidden=scale.value!=="custom";};scale.addEventListener("change",sync);sync();}
