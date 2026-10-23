@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abulques263-dotcom.github.io/makecv/sitemap.xml
