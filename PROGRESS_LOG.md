@@ -111,3 +111,11 @@
 - Added a food-preference-based balanced meal-ideas helper (vegetarian, vegetarian + eggs, or mixed foods), generated locally in the browser. It is explicitly labelled as rule-based, not AI-powered, and includes allergy/personal-needs cautions.
 - A real AI integration was not added because this static GitHub Pages project has no secure backend/API endpoint. No API key is exposed in browser code and the site does not pretend the local helper is AI.
 - Source changes committed; browser interaction and live deployment still need verification.
+
+
+### BMI category and activity guidance update — 2026-10-24
+- Improved adult BMI results to name the broad screening category (within range, above range/overweight, or higher BMI screening range) and, where applicable, calculate the arithmetic difference from a standard screening boundary. The page explicitly says this is not a personal weight-loss/gain prescription.
+- Under-18 results continue to avoid target weights and weight-change amounts, and instead explain age/sex-specific growth-chart interpretation and encourage trusted-adult/clinical support.
+- Added general public-health movement guidance with age distinctions, plus cautions to adapt activity and avoid treating the guidance as an individual prescription.
+- Repeatedly disclosed that the meal helper is rule-based and AI is not connected. No secure backend or provider credentials were found in the static GitHub Pages project, so no fake AI integration or browser-exposed API key was added. Real AI requires a secure server-side endpoint and configured provider credentials; provider usage may cost money.
+- Commits: `9919a9a` (BMI result logic) and `2c67e51` (page guidance). Automated/browser/live deployment testing has not been verified.
