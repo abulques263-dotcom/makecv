@@ -45,3 +45,58 @@
 .bmi-related{margin-top:38px}
 @media(max-width:720px){.bmi-layout{width:min(100% - 24px,560px);margin-top:12px}.bmi-layout .tool-hero{padding:20px 0 24px}.bmi-columns{grid-template-columns:1fr;gap:14px}.bmi-calculator-card,.bmi-side-card{border-radius:15px}.bmi-calculator-card .field-grid{grid-template-columns:1fr 1fr}.bmi-calculator-card .bmi-age-field{grid-column:1/-1}.bmi-category{padding:12px 0}.bmi-related .tool-links{grid-template-columns:1fr 1fr}}
 @media(max-width:420px){.bmi-calculator-card .field-grid{grid-template-columns:1fr}.bmi-calculator-card .bmi-age-field{grid-column:auto}.bmi-category{grid-template-columns:10px minmax(0,1fr);row-gap:3px}.bmi-category strong{grid-column:2}.bmi-related .tool-links{grid-template-columns:1fr}}
+
+/* Detailed BMI calculator controls and printable results */
+.bmi-layout{max-width:1050px}.bmi-columns{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.bmi-calculator-card{padding:clamp(20px,3vw,30px);background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 12px 36px #17365d0a}
+.bmi-card-heading,.bmi-result-header{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.bmi-card-heading h2,.bmi-result-header h2{font-size:22px;letter-spacing:-.6px;margin:5px 0 0}
+.bmi-kicker{font-size:10px;letter-spacing:1.3px;font-weight:850;color:#65758a}
+.bmi-mini-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:#edf3ff;color:#2463eb;font-size:20px}
+.bmi-unit-tabs{display:flex;gap:5px;flex-wrap:wrap;padding:5px;background:#f1f5fa;border-radius:11px;margin:22px 0}
+.bmi-unit-tab{border:1px solid transparent;background:transparent;color:#566a82;font:inherit;font-size:13px;font-weight:750;padding:10px 14px;border-radius:8px;cursor:pointer}
+.bmi-unit-tab.is-active{background:#fff;color:#1d4ed8;border-color:#dce6f7;box-shadow:0 2px 6px #19365b0b}
+.bmi-person-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+.bmi-person-grid .field small{font-size:11px;color:#7b899b}
+.bmi-gender-field{border:0;padding:0;margin:0;min-width:0}
+.bmi-gender-field legend{font-size:13px;font-weight:750;margin-bottom:6px}
+.bmi-gender-options{display:flex;gap:10px;min-height:44px}
+.bmi-gender-options label{display:flex;align-items:center;gap:7px;border:1px solid #dce4ef;border-radius:9px;padding:10px 13px;font-size:13px;flex:1;cursor:pointer}
+.bmi-gender-options input{accent-color:#2463eb}
+.bmi-input-wrap{display:flex;align-items:center;border:1px solid #dce4ef;border-radius:9px;padding-right:12px;background:#fff}
+.bmi-input-wrap:focus-within{outline:3px solid #2463eb20;border-color:#2463eb}
+.bmi-input-wrap input{border:0!important;outline:0!important;box-shadow:none!important;min-width:0}
+.bmi-input-wrap span{font-size:12px;font-weight:750;color:#718198;white-space:nowrap}
+.bmi-dual-inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bmi-privacy{display:flex;gap:9px;border-top:1px solid #edf1f6;margin-top:24px;padding-top:16px;color:#68788e;font-size:11px;line-height:1.6}
+.bmi-results-panel[hidden]{display:none}
+.bmi-result-card{padding:clamp(20px,3vw,28px);background:#fff;border:1px solid #dce7f6;border-radius:16px;box-shadow:0 12px 36px #17365d0a}
+.bmi-print-button{border:1px solid #dce4ef;background:#fff;border-radius:8px;padding:9px 12px;font:inherit;font-size:12px;font-weight:750;color:#31465f;cursor:pointer}
+.bmi-score-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0 18px}
+.bmi-score-row output{font-size:clamp(32px,5vw,44px);font-weight:850;letter-spacing:-1.5px;color:#173d82}
+.bmi-category-pill{background:#edf3ff;color:#204da7;border-radius:99px;padding:7px 11px;font-size:12px;font-weight:800}
+.bmi-meter{height:13px;display:flex;position:relative;border-radius:99px;gap:3px;overflow:visible;margin:20px 0 8px}
+.bmi-meter-segment{height:100%;display:block}
+.bmi-meter-low{flex:18.5;background:#8b9bf1;border-radius:99px 0 0 99px}
+.bmi-meter-normal{flex:6.5;background:#35b889}
+.bmi-meter-high{flex:5;background:#f3bd52}
+.bmi-meter-obese{flex:15;background:#e77778;border-radius:0 99px 99px 0}
+.bmi-meter-marker{position:absolute;z-index:1;left:50%;top:-5px;width:4px;height:23px;border:1px solid #fff;background:#132c4b;box-shadow:0 0 0 1px #132c4b;border-radius:4px;transform:translateX(-50%)}
+.bmi-meter-labels{display:flex;justify-content:space-between;gap:6px;font-size:9px;color:#7a899d}
+.bmi-result-description{font-size:13px;line-height:1.7;color:#50627a;margin:18px 0}
+.bmi-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.bmi-stat-grid>div{border:1px solid #e7edf5;background:#fafcff;border-radius:10px;padding:13px}
+.bmi-stat-grid span{display:block;font-size:10px;line-height:1.5;color:#718198;margin-bottom:6px}
+.bmi-stat-grid strong{font-size:14px;color:#243b56;overflow-wrap:anywhere}
+.bmi-teen-note{border-left:3px solid #e4ad39;background:#fff8e7;padding:12px 14px;font-size:12px;line-height:1.7;color:#6b5529;border-radius:0 8px 8px 0}
+.bmi-table-wrap{overflow-x:auto;border:1px solid #e2e8f0;border-radius:12px;background:#fff}
+.bmi-reference-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}
+.bmi-reference-table th,.bmi-reference-table td{padding:12px 16px;border-bottom:1px solid #edf1f6}
+.bmi-reference-table th{background:#f4f7fb;font-weight:800;color:#334b66}
+.bmi-reference-table tr:last-child td{border-bottom:0}
+.bmi-reference-table td:last-child,.bmi-reference-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.bmi-explainer h3,.faq-section h3{font-size:15px;margin-top:22px}
+.bmi-explainer p{line-height:1.75}
+@media(min-width:850px){.bmi-columns{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:540px){.bmi-person-grid{grid-template-columns:1fr}.bmi-unit-tabs{gap:2px}.bmi-unit-tab{padding:9px 10px;flex:1;font-size:12px}.bmi-meter-labels{font-size:8px}.bmi-stat-grid{grid-template-columns:1fr 1fr}}
+@media print{body{background:#fff!important;color:#111!important}.site-header,.site-footer,.tool-hero,.bmi-calculator-card,.bmi-reference-section,.bmi-explainer,.faq-section,.bmi-print-button{display:none!important}.tool-page{width:100%;max-width:none;margin:0}.bmi-columns{display:block}.bmi-results-panel[hidden]{display:block!important}.bmi-result-card{box-shadow:none;border:0;padding:0}.bmi-result-card *{break-inside:avoid}.bmi-result-description{color:#222}.bmi-stat-grid>div{border-color:#ccc;background:#fff}}
