@@ -56,3 +56,9 @@
 - Added a homepage FAQ section at the bottom of the main content, immediately before the footer.
 - No calculator JavaScript was changed in this visual pass.
 - Live Pages deployment and visual browser testing are not claimed as verified.
+
+### Calculator QA pass — 2026-10-24
+- Reviewed the current client-side handlers in `app.js` and `tools.js` for the percentage, CGPA, required-marks, average, and grade calculators.
+- Manually checked representative formula examples against the formulas used in the source: 45/60 = 75%; 8.2 × 9.5 = 77.9%; 3.2/4 = 80%; required marks for 80% on 300 completed + 100 remaining with 240 already scored = 80; average of 70, 80, 90 = 80; 42/50 = 84%.
+- Source inspection confirms validation paths for empty/invalid inputs, CGPA range by selected scale, marks above maximum, negative scores, target range, and required marks exceeding remaining available marks.
+- These were source-review and manual formula sanity checks, not automated browser tests. Cross-browser interaction, actual live-page behavior, and deployment remain unverified.
