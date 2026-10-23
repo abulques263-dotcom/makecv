@@ -60,10 +60,20 @@
       const interest=principal*rate*years/100;
       success(fmt(principal+interest),"Simple interest: "+fmt(interest)+". Formula: principal × annual rate × time ÷ 100. Assumes the rate stays constant and time is in years.");
     } else if(tool==="bmi"){
-      const weight=num("weight"), height=num("height");
-      if(!positive(weight)||!positive(height)||weight>500||height<50||height>250){fail("Enter a weight from 1–500 kg and a height from 50–250 cm.");return;}
+      const weight=num("weight"), height=num("height"), age=num("age");
+      if(!positive(weight)||!positive(height)||!Number.isInteger(age)||age<1||age>120||weight>500||height<50||height>250){fail("Enter a valid age (1–120 years), weight (1–500 kg), and height (50–250 cm).");return;}
       const metres=height/100, bmi=weight/(metres*metres);
-      success(fmt(bmi)+" kg/m²","BMI is a screening measure, not a diagnosis. Adult cut-offs should not be used for children or teenagers; people under 18 need age- and sex-specific interpretation from a qualified health professional.");
+      if(age<18){
+        success(fmt(bmi)+" kg/m²","BMI is only a screening measure, not a diagnosis. For anyone under 18, interpretation depends on age and sex-specific growth charts. This calculator cannot tell you whether you need to gain or lose weight or give a target weight. Please discuss concerns with a trusted adult and qualified healthcare professional.");
+      } else {
+        const low=18.5*metres*metres, high=24.9*metres*metres;
+        let category;
+        if(bmi<18.5) category="Below the usual adult screening range";
+        else if(bmi<25) category="Within the usual adult screening range";
+        else if(bmi<30) category="Above the usual adult screening range";
+        else category="Higher adult BMI screening range";
+        success(fmt(bmi)+" kg/m²",category+". A broad adult BMI 18.5–24.9 range at your height is about "+fmt(low)+"–"+fmt(high)+" kg. This is not a personal target or diagnosis; BMI can be misleading for some people. Ask a healthcare professional if you have concerns.");
+      }
     } else if(tool==="date"){
       const start=$("start-date").value, end=$("end-date").value;
       if(!start||!end){fail("Choose both a start date and an end date.");return;}
@@ -94,3 +104,39 @@
   const scale=$("scale");
   if(scale){const custom=$("custom-fields");const sync=()=>{custom.hidden=scale.value!=="custom";};scale.addEventListener("change",sync);sync();}
 })();
+  const mealForm=$("meal-form");
+  if(mealForm){
+    mealForm.addEventListener("submit",event=>{
+      event.preventDefault();
+      const preference=$("meal-preference").value;
+      const mealResult=$("meal-result"), mealOutput=$("meal-output");
+      const options={
+        vegetarian:[
+          ["Breakfast","Oats or porridge with milk/fortified soy milk, fruit, and nuts or seeds if safe."],
+          ["Lunch","Dal or beans, rice or roti, and a variety of vegetables."],
+          ["Snack","Yogurt/curd or a fortified alternative with fruit."],
+          ["Dinner","Chickpeas, tofu, paneer, or lentils with whole grains and vegetables."]
+        ],
+        eggs:[
+          ["Breakfast","Eggs with whole-grain toast and fruit, or oats with milk and nuts/seeds if safe."],
+          ["Lunch","Dal or beans, rice or roti, vegetables, and curd/yogurt."],
+          ["Snack","Fruit with yogurt/curd or a handful of nuts if safe."],
+          ["Dinner","Vegetable omelette or tofu/paneer with roti and vegetables."]
+        ],
+        mixed:[
+          ["Breakfast","Oats with milk/yogurt and fruit, or eggs with whole-grain toast."],
+          ["Lunch","Chicken, fish, beans, or dal with rice/roti and vegetables."],
+          ["Snack","Fruit with yogurt/curd or nuts/seeds if safe."],
+          ["Dinner","Fish, chicken, tofu, or lentils with whole grains and vegetables."]
+        ]
+      };
+      mealOutput.replaceChildren();
+      const list=document.createElement("ul");
+      options[preference].forEach(([label,description])=>{
+        const item=document.createElement("li");
+        const strong=document.createElement("strong"); strong.textContent=label+": ";
+        item.append(strong,document.createTextNode(description)); list.appendChild(item);
+      });
+      mealOutput.appendChild(list); mealResult.hidden=false;
+    });
+  }
