@@ -64,24 +64,14 @@
       if(!positive(weight)||!positive(height)||!Number.isInteger(age)||age<1||age>120||weight>500||height<50||height>250){fail("Enter a valid age (1–120 years), weight (1–500 kg), and height (50–250 cm).");return;}
       const metres=height/100, bmi=weight/(metres*metres);
       if(age<18){
-        success(fmt(bmi)+" kg/m²","Teen result: BMI alone cannot classify your weight or tell you to lose/gain a certain number of kilograms. A clinician should interpret it using age- and sex-specific growth charts. Avoid restrictive diets or trying to change your weight based on this number. Focus on regular meals, sleep, enjoyable movement, and talk with a trusted adult or healthcare professional if you're concerned.");
+        success(fmt(bmi)+" kg/m²","Teen BMI needs age- and sex-specific growth charts, so this calculator cannot reliably label it as overweight or okay.");
       } else {
-        const low=18.5*metres*metres, high=24.9*metres*metres;
-        let category, guidance;
-        if(bmi<18.5) {
-          category="Below the usual adult BMI screening range";
-          guidance="The estimated difference to the lower screening boundary (BMI 18.5) is about "+fmt(low-weight)+" kg. This is not a prescribed gain target; check with a healthcare professional, especially if your weight changed unexpectedly.";
-        } else if(bmi<25) {
-          category="Within the usual adult BMI screening range";
-          guidance="Your BMI is within the usual adult screening range. There is no BMI-based weight-loss amount indicated by this screening result.";
-        } else if(bmi<30) {
-          category="Above the usual adult BMI screening range (often called overweight)";
-          guidance="The estimated difference between your current weight and the upper screening boundary (BMI 24.9) is about "+fmt(Math.max(0,weight-high))+" kg. This is a mathematical comparison, NOT a recommendation to lose that amount; BMI alone cannot determine a safe or necessary goal.";
-        } else {
-          category="Higher adult BMI screening range (often called obesity)";
-          guidance="The estimated difference between your current weight and the upper screening boundary (BMI 24.9) is about "+fmt(Math.max(0,weight-high))+" kg. This is a mathematical comparison, NOT a personal weight-loss prescription. Consider discussing your overall health and options with a qualified healthcare professional.";
-        }
-        success(fmt(bmi)+" kg/m²",category+". "+guidance+" The broad adult BMI 18.5–24.9 range at your height is about "+fmt(low)+"–"+fmt(high)+" kg. BMI is a screening tool, not a diagnosis, and may not suit everyone.");
+        let category;
+        if(bmi<18.5) category="Below the usual adult BMI range";
+        else if(bmi<25) category="Weight is in the usual adult BMI range";
+        else if(bmi<30) category="Overweight range";
+        else category="Obesity range";
+        success(fmt(bmi)+" kg/m²",category);
       }
     } else if(tool==="date"){
       const start=$("start-date").value, end=$("end-date").value;
