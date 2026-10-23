@@ -94,3 +94,12 @@
 - Source-level audit confirms every page has a title, meta description, and canonical URL on the expected GitHub Pages domain.
 - Confirmed all 13 pages link to About, Contact, and Privacy Policy in their footer.
 - This checks repository source only; it does not establish that GitHub Pages has finished deploying or that a real browser renders every page correctly.
+
+
+### BMI calculator and homepage directory — 2026-10-24
+- Added `bmi-calculator.html` with metric height/weight inputs, input validation, formula explanation, unique metadata/canonical URL, FAQs, and links to other tools.
+- Added a BMI calculation branch in `tools.js`; it returns the BMI number and clearly warns that BMI is a screening measure, not a diagnosis. It specifically avoids adult cut-off interpretation for children and teenagers, who need age- and sex-specific interpretation.
+- Moved the homepage's all-calculators directory to immediately below the hero so visitors see the complete tool directory before the main marks calculator; added BMI to the directory.
+- Added BMI to the navigation and related-calculator cards on the nine existing standalone calculator pages.
+- Added the BMI page to `sitemap.xml`.
+- Source-level verification is still needed after these edits. Browser testing and live deployment have not been confirmed.
