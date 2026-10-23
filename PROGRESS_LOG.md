@@ -62,3 +62,11 @@
 - Manually checked representative formula examples against the formulas used in the source: 45/60 = 75%; 8.2 × 9.5 = 77.9%; 3.2/4 = 80%; required marks for 80% on 300 completed + 100 remaining with 240 already scored = 80; average of 70, 80, 90 = 80; 42/50 = 84%.
 - Source inspection confirms validation paths for empty/invalid inputs, CGPA range by selected scale, marks above maximum, negative scores, target range, and required marks exceeding remaining available marks.
 - These were source-review and manual formula sanity checks, not automated browser tests. Cross-browser interaction, actual live-page behavior, and deployment remain unverified.
+
+### Remaining calculators added — 2026-10-24
+- Added standalone pages for Age Calculator, Date Calculator, Discount Calculator, Simple Interest Calculator, and Exam Countdown.
+- Added client-side calculation handlers with validation to `tools.js`.
+- Added links to the new calculators on the homepage and shared related-calculator lists.
+- Each new page includes a unique title, meta description, canonical URL, accessible labels, formula/instructions, and FAQ at the bottom immediately before the footer.
+- Formula sanity checks: discount $80 at 25% => $60 final/$20 saved; simple interest $1,000 at 5% for 3 years => $150 interest/$1,150 total; date difference uses UTC calendar midnights; age uses calendar-year/month/day arithmetic; countdown compares calendar dates.
+- Source files are committed and will be re-fetched to verify. Browser testing and live deployment are not claimed as verified.
