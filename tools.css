@@ -2,3 +2,46 @@
 /* Premium layout for standalone tools */
 .tool-page{margin-top:24px;margin-bottom:42px}.tool-hero{padding:30px 0 28px}.tool-hero .eyebrow{margin:0 0 12px}.tool-hero h1{font-weight:850}.tool-card{padding:clamp(20px,4vw,36px)}.tool-actions .button-primary{flex:1}.content-section ol{padding-left:22px}.content-section li{padding:3px 0}
 @media(max-width:620px){.tool-links{grid-template-columns:1fr}.tool-actions .button-primary{flex-basis:100%}}
+
+
+/* BMI calculator page refresh */
+.bmi-page{background:#f6f8fc}
+.bmi-layout{max-width:1040px;margin-top:24px}
+.bmi-layout .tool-hero{padding:24px 0 30px}
+.bmi-layout .tool-hero h1{font-size:clamp(34px,5vw,48px);letter-spacing:-1.8px}
+.bmi-columns{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);gap:20px;align-items:start}
+.bmi-calculator-card,.bmi-side-card{border:1px solid #e3eaf4;border-radius:18px;background:#fff;box-shadow:0 18px 48px rgba(20,48,88,.055)}
+.bmi-calculator-card{padding:clamp(20px,3vw,30px)}
+.bmi-card-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.bmi-kicker{font-size:10px;letter-spacing:1.4px;font-weight:850;color:#62748c}
+.bmi-card-heading h2,.bmi-side-heading h2{font-size:22px;letter-spacing:-.6px;margin:5px 0 0}
+.bmi-mini-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#edf3ff;color:#2463eb;font-size:21px}
+.bmi-calculator-card .field-grid{grid-template-columns:1fr 1fr}
+.bmi-calculator-card .bmi-age-field{grid-column:1/-1}
+.bmi-input-wrap{display:flex;align-items:center;border:1px solid #dce4ef;border-radius:10px;background:#fff;padding-right:12px}
+.bmi-input-wrap:focus-within{outline:3px solid #2463eb20;border-color:#2463eb}
+.bmi-input-wrap input{border:0!important;outline:0!important;box-shadow:none!important;min-width:0}
+.bmi-input-wrap span{font-size:12px;font-weight:750;color:#718198;white-space:nowrap}
+.bmi-calculator-card .button{min-height:45px;border-radius:10px}
+.bmi-calculator-card .button-primary{padding-inline:20px}
+.bmi-privacy{display:flex;gap:9px;align-items:flex-start;border-top:1px solid #edf1f6;margin-top:24px;padding-top:17px;color:#68788e;font-size:11px;line-height:1.6}
+.bmi-privacy span:first-child{font-size:13px}
+.bmi-result{background:#f0f5ff;border-color:#d9e6ff;margin-top:20px}
+.bmi-result-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.bmi-result-symbol{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#dce9ff;color:#245bd2;font-weight:900}
+.bmi-result output{display:block;font-size:clamp(30px,4vw,40px);color:#173d82}
+.bmi-side-card{padding:clamp(20px,3vw,28px)}
+.bmi-side-heading p{font-size:13px;line-height:1.7;color:#66768b;margin:10px 0 22px}
+.bmi-scale{height:12px;border-radius:99px;overflow:hidden;display:flex;gap:3px;margin-bottom:19px}
+.bmi-scale-segment{height:100%;flex:1}
+.bmi-under{background:#8c9ef5}.bmi-usual{background:#37b98b}.bmi-over{background:#f4bb4e}.bmi-obese{background:#e97878}
+.bmi-category-list{display:grid;gap:0}
+.bmi-category{display:grid;grid-template-columns:10px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #edf1f6;font-size:12px;color:#475a71}
+.bmi-category strong{font-size:12px;color:#203852;white-space:nowrap}
+.bmi-category-dot{width:9px;height:9px;border-radius:50%}
+.bmi-under-dot{background:#8c9ef5}.bmi-usual-dot{background:#37b98b}.bmi-over-dot{background:#f4bb4e}.bmi-obese-dot{background:#e97878}
+.bmi-note{background:#f7f9fc;border:1px solid #edf1f6;border-radius:11px;padding:14px;margin-top:20px}
+.bmi-note strong{font-size:12px}.bmi-note p{font-size:11px;line-height:1.65;color:#68788e;margin:5px 0 0}
+.bmi-related{margin-top:38px}
+@media(max-width:720px){.bmi-layout{width:min(100% - 24px,560px);margin-top:12px}.bmi-layout .tool-hero{padding:20px 0 24px}.bmi-columns{grid-template-columns:1fr;gap:14px}.bmi-calculator-card,.bmi-side-card{border-radius:15px}.bmi-calculator-card .field-grid{grid-template-columns:1fr 1fr}.bmi-calculator-card .bmi-age-field{grid-column:1/-1}.bmi-category{padding:12px 0}.bmi-related .tool-links{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.bmi-calculator-card .field-grid{grid-template-columns:1fr}.bmi-calculator-card .bmi-age-field{grid-column:auto}.bmi-category{grid-template-columns:10px minmax(0,1fr);row-gap:3px}.bmi-category strong{grid-column:2}.bmi-related .tool-links{grid-template-columns:1fr}}
