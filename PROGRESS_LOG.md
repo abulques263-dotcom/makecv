@@ -103,3 +103,11 @@
 - Added BMI to the navigation and related-calculator cards on the nine existing standalone calculator pages.
 - Added the BMI page to `sitemap.xml`.
 - Source-level verification is still needed after these edits. Browser testing and live deployment have not been confirmed.
+
+
+### BMI calculator safety and meal-ideas improvement — 2026-10-24
+- Improved the BMI page with age input and validation, cautious adult-only interpretation, and an estimated adult BMI screening range (18.5–24.9) clearly labelled as non-personal and non-diagnostic.
+- For people under 18, the page reports the BMI number only, explains age/sex-specific interpretation, and does not suggest a target weight or weight-gain/loss plan.
+- Added a food-preference-based balanced meal-ideas helper (vegetarian, vegetarian + eggs, or mixed foods), generated locally in the browser. It is explicitly labelled as rule-based, not AI-powered, and includes allergy/personal-needs cautions.
+- A real AI integration was not added because this static GitHub Pages project has no secure backend/API endpoint. No API key is exposed in browser code and the site does not pretend the local helper is AI.
+- Source changes committed; browser interaction and live deployment still need verification.
