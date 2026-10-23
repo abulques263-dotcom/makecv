@@ -70,3 +70,5 @@
 - Each new page includes a unique title, meta description, canonical URL, accessible labels, formula/instructions, and FAQ at the bottom immediately before the footer.
 - Formula sanity checks: discount $80 at 25% => $60 final/$20 saved; simple interest $1,000 at 5% for 3 years => $150 interest/$1,150 total; date difference uses UTC calendar midnights; age uses calendar-year/month/day arithmetic; countdown compares calendar dates.
 - Source files are committed and will be re-fetched to verify. Browser testing and live deployment are not claimed as verified.
+
+- Follow-up source validation found and corrected a JavaScript branch-boundary syntax issue in the new tool handlers before calling the implementation complete.
