@@ -16,15 +16,16 @@ h1{font-size:clamp(1.7rem,3vw,2.25rem);line-height:1.2;margin:0 0 8px}h2{font-si
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:15px 18px}.field{min-width:0}.field.full{grid-column:1/-1}.field label,.field legend{display:block;font-weight:700;margin-bottom:6px}.field input[type=number],.field input[type=text]{width:100%;min-height:42px;border:1px solid #aebbc1;border-radius:4px;padding:9px 10px;font:inherit;background:#fff;color:var(--ink)}.field small{display:block;color:var(--muted);font-size:.85rem;margin-top:4px}.units{display:flex;align-items:center;gap:8px}.units input{flex:1;min-width:0}.unit{white-space:nowrap;color:var(--muted)}fieldset{border:0;padding:0;margin:0}.radios{display:flex;gap:20px;align-items:center;min-height:42px}.radios label{font-weight:400;margin:0;display:flex;align-items:center;gap:7px}.radios input{accent-color:var(--blue);width:16px;height:16px}
 .actions{display:flex;gap:10px;margin-top:20px}.btn{border:0;border-radius:4px;padding:11px 20px;font:700 1rem Arial,sans-serif;cursor:pointer}.calculate{background:var(--green);color:#fff}.calculate:hover{background:var(--green-dark)}.clear{background:#e4e8ea;color:#263238}.clear:hover{background:#d3dadd}.error{color:#a52626;background:#fff1f0;border:1px solid #f0c1bd;border-radius:4px;padding:10px 12px;margin-top:14px}.hidden{display:none!important}
 .results{border:1px solid var(--line);border-radius:8px;overflow:hidden}.result-title{background:#eef5f7;padding:14px 17px;font-weight:700;border-bottom:1px solid var(--line)}.result-content{padding:18px}.bmi-value{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:800;color:#1b6488;line-height:1.2}.category{display:inline-block;margin:9px 0 14px;padding:4px 9px;border-radius:4px;background:#e5f3e7;color:#236a35;font-weight:700}.metric-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #e7ecee}.metric-row:last-child{border-bottom:0}.metric-row span:first-child{color:var(--muted)}.note{font-size:.9rem;color:var(--muted);margin:13px 0 0}.result-actions{display:flex;justify-content:flex-end;margin-top:12px}.print{background:#e7ecee;color:#263238;border:0;border-radius:4px;padding:8px 13px;cursor:pointer;font-weight:700}
-.section{margin-top:26px}.section p{color:#46545b}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:7px}table{width:100%;border-collapse:collapse;min-width:430px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line)}th{background:var(--soft);font-weight:700}tbody tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fafbfb}.fineprint{font-size:.9rem;color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--muted);font-size:.85rem}
-@media(max-width:760px){.page{padding:18px 12px 34px}.layout{grid-template-columns:1fr}.fields{gap:14px}.panel-body{padding:15px}.tabs{margin:-15px -15px 16px}.result-content{padding:15px}}
-@media(max-width:420px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.actions .btn{flex:1;padding:11px 12px}.radios{gap:16px}}
+.tool-directory{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}.tool-directory h2{margin-bottom:6px}.tool-directory>p{color:var(--muted);margin:0 0 16px}.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.tool-card{display:block;padding:15px;border:1px solid var(--line);border-radius:7px;text-decoration:none;color:var(--ink);background:#fff;transition:border-color .15s,transform .15s}.tool-card:hover{border-color:#78a8bc;transform:translateY(-1px)}.tool-card strong{display:block;color:#1c5f85;margin-bottom:5px}.tool-card span{display:block;font-size:.9rem;color:var(--muted)}.top-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}.top-nav a{padding:7px 11px;border:1px solid var(--line);border-radius:5px;color:#1c5f85;text-decoration:none;font-weight:700;font-size:.9rem}.top-nav a:hover{background:var(--soft)}.section{margin-top:26px}.section p{color:#46545b}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:7px}table{width:100%;border-collapse:collapse;min-width:430px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line)}th{background:var(--soft);font-weight:700}tbody tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fafbfb}.fineprint{font-size:.9rem;color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--muted);font-size:.85rem}
+@media(max-width:760px){.page{padding:18px 12px 34px}.layout{grid-template-columns:1fr}.fields{gap:14px}.panel-body{padding:15px}.tabs{margin:-15px -15px 16px}.result-content{padding:15px}.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.actions .btn{flex:1;padding:11px 12px}.radios{gap:16px}.tool-grid{grid-template-columns:1fr}}
 @media print{body{font-size:12pt}.page{max-width:none;padding:0}.brand,.intro,.tabs,.actions,.result-actions,footer{display:none!important}.layout{display:block}.panel{border:0}.panel-head{padding:0 0 10px;background:#fff;border:0}.panel-body{padding:0}.results{margin-top:18px;break-inside:avoid}.section{break-inside:avoid}.section table{font-size:10pt}.section .table-wrap{overflow:visible}}
 </style>
 </head>
 <body>
 <main class="page">
   <div class="brand">Calc<span>ora</span></div>
+  <nav class="top-nav" aria-label="Main navigation"><a href="index.html">All Calculators</a><a href="index.html#calculator">Percentage Score</a><a href="exam-countdown.html">Exam Countdown</a></nav>
   <h1>BMI Calculator</h1>
   <p class="intro">Calculate Body Mass Index using US or metric measurements. Results include BMI Prime, Ponderal Index, and a reference table to help explain the number.</p>
 
@@ -109,7 +110,23 @@ h1{font-size:clamp(1.7rem,3vw,2.25rem);line-height:1.2;margin:0 0 8px}h2{font-si
     <h2>How the calculations work</h2>
     <p><strong>BMI</strong> = weight in kilograms ÷ height in metres squared. <strong>BMI Prime</strong> = BMI ÷ 25. <strong>Ponderal Index</strong> = weight in kilograms ÷ height in metres cubed.</p>
   </section>
-  <footer>Calcora BMI Calculator · For informational use only. This tool does not provide a medical diagnosis.</footer>
+  <section class="tool-directory" aria-labelledby="all-tools-heading">
+    <h2 id="all-tools-heading">All Calcora tools</h2>
+    <p>BMI calculator ke alawa percentage, exam planning aur daily calculations ke liye bhi free tools use karein.</p>
+    <div class="tool-grid">
+      <a class="tool-card" href="index.html#calculator"><strong>Marks & Percentage Score</strong><span>Subject-wise marks, total score aur percentage calculate karein.</span></a>
+      <a class="tool-card" href="cgpa-to-percentage.html"><strong>CGPA to Percentage</strong><span>CGPA conversion estimate karein; apne institution ka formula check karein.</span></a>
+      <a class="tool-card" href="required-marks.html"><strong>Required Marks</strong><span>Target percentage ke liye kitne marks chahiye, pata karein.</span></a>
+      <a class="tool-card" href="average-marks.html"><strong>Average Marks</strong><span>Multiple subjects ya scores ka average nikalein.</span></a>
+      <a class="tool-card" href="grade-calculator.html"><strong>Grade Calculator</strong><span>Apne score se estimated grade dekhein.</span></a>
+      <a class="tool-card" href="exam-countdown.html"><strong>Exam Countdown</strong><span>Exam tak kitne din bache hain, track karein.</span></a>
+      <a class="tool-card" href="age-calculator.html"><strong>Age Calculator</strong><span>Years, months aur days mein age calculate karein.</span></a>
+      <a class="tool-card" href="date-calculator.html"><strong>Date Calculator</strong><span>Do dates ke beech din count karein.</span></a>
+      <a class="tool-card" href="discount-calculator.html"><strong>Discount Calculator</strong><span>Discount amount aur final price calculate karein.</span></a>
+      <a class="tool-card" href="simple-interest.html"><strong>Simple Interest</strong><span>Interest aur total amount ka estimate nikalein.</span></a>
+    </div>
+  </section>
+  <footer>Calcora BMI Calculator · For informational use only. This tool does not provide a medical diagnosis. <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a></footer>
 </main>
 <script>
 (() => {
