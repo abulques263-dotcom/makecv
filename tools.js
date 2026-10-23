@@ -26,7 +26,7 @@
     const usHeight = document.querySelector(".bmi-height-us");
     if(metricHeight) metricHeight.hidden = mode === "us";
     if(usHeight) usHeight.hidden = mode !== "us";
-    if(bmiWeightUnit) bmiWeightUnit.textContent = mode === "us" ? "lb" : "kg";
+    if(bmiWeightUnit) bmiWeightUnit.textContent = mode === "metric" ? "kg" : "lb";
     if(bmiHeightMetric) bmiHeightMetric.required = mode !== "us";
     if(bmiHeightUs) bmiHeightUs.required = mode === "us";
     if(bmiHeightInches) bmiHeightInches.required = mode === "us";
@@ -94,7 +94,7 @@
     } else if(tool==="bmi"){
       const age=num("age"), weightRaw=num("weight"), metric=$("bmi-unit-mode") ? $("bmi-unit-mode").value : (document.querySelector(".bmi-unit-tab.is-active")?.dataset.bmiUnit || "metric");
       const heightCm=metric==="us" ? ((num("height-feet")||0)*12+(num("height-inches")||0))*2.54 : num("height");
-      const weightKg=metric==="us" ? weightRaw*0.45359237 : weightRaw;
+      const weightKg=metric==="metric" ? weightRaw : weightRaw*0.45359237;
       if(!Number.isInteger(age)||age<2||age>120){fail("Enter an age from 2 to 120 years.");return;}
       if(!positive(weightRaw)||!Number.isFinite(weightKg)||weightKg>700){fail("Enter a valid positive weight.");return;}
       if(!positive(heightCm)||heightCm<50||heightCm>300){fail("Enter a valid height between 50 and 300 cm (or the equivalent US height).");return;}
