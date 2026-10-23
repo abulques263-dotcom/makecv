@@ -79,3 +79,11 @@
 - Added `robots.txt` allowing public crawling and pointing crawlers to the sitemap URL.
 - This improves crawl discovery but does not guarantee indexing or rankings. Sitemap availability and the live Pages deployment still need to be checked after publishing.
 - Next recommended step: validate calculator behavior in a real browser, then create a Search Console property and submit the sitemap once the live site is stable.
+
+
+### Trust and site-information pages — 2026-10-24
+- Added `about.html`, `contact.html`, and `privacy.html` with unique page titles, descriptions, canonical URLs, responsive shared styling, and links back to the calculator site.
+- Contact page directs issue reports to the public GitHub Issues page; no email address was invented.
+- Privacy page explains browser-side calculator processing and notes that GitHub Pages may process technical request data; it links to GitHub's privacy statement.
+- Updated `sitemap.xml` to include these three pages.
+- Remaining: verify the live pages, test actual browser behavior, and submit sitemap through Search Console after confirming publication.
