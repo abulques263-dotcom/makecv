@@ -2,28 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102a43">
-<meta name="description" content="Free BMI calculator to check your adult BMI category.">
+<meta name="description" content="Use Calcora's free BMI calculator to calculate body mass index from height and weight and view the adult BMI category.">
 <link rel="canonical" href="https://abulques263-dotcom.github.io/makecv/bmi-calculator.html"><title>BMI Calculator | Calcora</title>
 <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="tools.css"><script src="tools.js" defer></script>
 </head>
-<body><a class="skip-link" href="#tool-form">Skip to calculator</a>
+<body class="bmi-page"><a class="skip-link" href="#tool-form">Skip to calculator</a>
 <header class="site-header"><a class="brand" href="index.html" aria-label="Calcora home"><span class="brand-mark">C</span><span>Calcora</span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html">Percentage</a><a href="cgpa-to-percentage.html">CGPA</a><a href="required-marks.html">Required marks</a><a href="average-marks.html">Average</a><a href="grade-calculator.html">Grade</a><a href="age-calculator.html">Age</a><a href="date-calculator.html">Date</a><a href="discount-calculator.html">Discount</a><a href="simple-interest.html">Interest</a><a href="exam-countdown.html">Exam countdown</a><a href="bmi-calculator.html" aria-current="page">BMI</a></nav><span class="header-pill">Free online tools</span></header>
-<main class="tool-page">
-<section class="tool-hero"><p class="eyebrow"><span class="eyebrow-dot"></span> CALCORA FREE TOOLS</p><h1>BMI Calculator</h1><p>Check your BMI and see a simple result category.</p></section>
-<section class="tool-card" aria-label="BMI Calculator">
+<main class="tool-page bmi-layout">
+<section class="tool-hero"><p class="eyebrow"><span class="eyebrow-dot"></span> HEALTH CALCULATOR</p><h1>BMI Calculator</h1><p>Calculate your Body Mass Index (BMI) using your height and weight.</p></section>
+<div class="bmi-columns">
+<section class="tool-card bmi-calculator-card" aria-label="BMI calculator">
+<div class="bmi-card-heading"><div><span class="bmi-kicker">YOUR MEASUREMENTS</span><h2>Enter your details</h2></div><span class="bmi-mini-icon" aria-hidden="true">↗</span></div>
 <form id="tool-form" class="tool-form" data-tool="bmi">
 <div class="field-grid">
-<div class="field"><label for="weight">Weight (kg)</label><input id="weight" type="number" min="1" max="500" step="any" inputmode="decimal" placeholder="e.g. 68" required></div>
-<div class="field"><label for="height">Height (cm)</label><input id="height" type="number" min="50" max="250" step="any" inputmode="decimal" placeholder="e.g. 170" required></div>
-<div class="field"><label for="age">Age (years)</label><input id="age" type="number" min="1" max="120" step="1" inputmode="numeric" placeholder="e.g. 25" required></div>
+<div class="field"><label for="weight">Weight</label><div class="bmi-input-wrap"><input id="weight" type="number" min="1" max="500" step="any" inputmode="decimal" placeholder="68" required><span>kg</span></div></div>
+<div class="field"><label for="height">Height</label><div class="bmi-input-wrap"><input id="height" type="number" min="50" max="250" step="any" inputmode="decimal" placeholder="170" required><span>cm</span></div></div>
+<div class="field bmi-age-field"><label for="age">Age</label><div class="bmi-input-wrap"><input id="age" type="number" min="1" max="120" step="1" inputmode="numeric" placeholder="25" required><span>years</span></div></div>
 </div>
 <p id="tool-error" class="tool-error" role="alert" aria-live="polite"></p>
-<div class="tool-actions"><button class="button button-primary" type="submit">Calculate BMI →</button><button class="button button-quiet" type="reset" onclick="document.getElementById('tool-result').hidden=true;document.getElementById('tool-error').textContent=''">Reset</button></div>
+<div class="tool-actions"><button class="button button-primary" type="submit">Calculate BMI <span aria-hidden="true">→</span></button><button class="button button-quiet" type="reset" onclick="document.getElementById('tool-result').hidden=true;document.getElementById('tool-error').textContent=''">Reset</button></div>
 </form>
-<section id="tool-result" class="tool-result" aria-live="polite" hidden><h2>Your result</h2><output id="tool-output"></output><p id="tool-detail"></p></section>
+<section id="tool-result" class="tool-result bmi-result" aria-live="polite" hidden><div class="bmi-result-top"><span class="bmi-kicker">YOUR BMI RESULT</span><span class="bmi-result-symbol" aria-hidden="true">✓</span></div><output id="tool-output"></output><p id="tool-detail"></p></section>
+<div class="bmi-privacy"><span aria-hidden="true">🔒</span><span>Your measurements are calculated in your browser and are not sent to a server.</span></div>
 </section>
-<section class="content-section"><h2>More free calculators</h2><div class="tool-links"><a class="tool-link-card" href="index.html"><strong>Percentage Calculator</strong><span>Calculate marks and percentage.</span></a><a class="tool-link-card" href="cgpa-to-percentage.html"><strong>CGPA Converter</strong><span>Choose a conversion scale.</span></a><a class="tool-link-card" href="required-marks.html"><strong>Required Marks</strong><span>Plan for a target score.</span></a><a class="tool-link-card" href="average-marks.html"><strong>Average Marks</strong><span>Find the mean of scores.</span></a><a class="tool-link-card" href="grade-calculator.html"><strong>Grade Calculator</strong><span>Estimate a letter grade.</span></a><a class="tool-link-card" href="age-calculator.html"><strong>Age Calculator</strong><span>Calculate age from date of birth.</span></a><a class="tool-link-card" href="date-calculator.html"><strong>Date Calculator</strong><span>Find days between dates.</span></a><a class="tool-link-card" href="discount-calculator.html"><strong>Discount Calculator</strong><span>Calculate savings and final price.</span></a><a class="tool-link-card" href="simple-interest.html"><strong>Simple Interest</strong><span>Estimate simple interest and total.</span></a><a class="tool-link-card" href="exam-countdown.html"><strong>Exam Countdown</strong><span>Count days until exam day.</span></a></div></section>
-<section class="content-section faq-section" id="faq"><h2>Frequently asked questions</h2><h3>Will this tell me exactly how much I should weigh?</h3><p>No. For adults it can show a broad screening range based on BMI, but it is not a personal target. For under-18s, this page does not estimate a target weight.</p><h3>Does BMI tell me whether I need to gain weight?</h3><p>Not by itself. BMI is only one screening measure. A qualified health professional can interpret it alongside growth, medical history, and other factors.</p><h3>Is BMI a diagnosis?</h3><p>No. BMI is a screening measure only.</p><h3>Are adult BMI categories suitable for teens?</h3><p>No. Children and teenagers need age- and sex-specific interpretation by an appropriate health professional.</p></section>
+<aside class="bmi-side-card">
+<div class="bmi-side-heading"><span class="bmi-kicker">BMI REFERENCE</span><h2>Adult BMI categories</h2><p>For adults aged 18 and over, BMI is grouped into these general ranges.</p></div>
+<div class="bmi-scale" role="img" aria-label="Adult BMI categories: below 18.5 below usual range, 18.5 to 24.9 usual range, 25 to 29.9 overweight range, 30 and above obesity range.">
+<div class="bmi-scale-segment bmi-under"></div><div class="bmi-scale-segment bmi-usual"></div><div class="bmi-scale-segment bmi-over"></div><div class="bmi-scale-segment bmi-obese"></div>
+</div>
+<div class="bmi-category-list">
+<div class="bmi-category"><span class="bmi-category-dot bmi-under-dot"></span><span>Below usual range</span><strong>Below 18.5</strong></div>
+<div class="bmi-category"><span class="bmi-category-dot bmi-usual-dot"></span><span>Usual adult range</span><strong>18.5–24.9</strong></div>
+<div class="bmi-category"><span class="bmi-category-dot bmi-over-dot"></span><span>Overweight range</span><strong>25.0–29.9</strong></div>
+<div class="bmi-category"><span class="bmi-category-dot bmi-obese-dot"></span><span>Obesity range</span><strong>30 and above</strong></div>
+</div>
+<div class="bmi-note"><strong>Important to know</strong><p>BMI is a screening measure, not a diagnosis. It does not measure health on its own.</p></div>
+</aside>
+</div>
+<section class="content-section bmi-related"><h2>More free calculators</h2><div class="tool-links"><a class="tool-link-card" href="index.html"><strong>Percentage Calculator</strong><span>Calculate marks and percentage.</span></a><a class="tool-link-card" href="cgpa-to-percentage.html"><strong>CGPA Converter</strong><span>Choose a conversion scale.</span></a><a class="tool-link-card" href="required-marks.html"><strong>Required Marks</strong><span>Plan for a target score.</span></a><a class="tool-link-card" href="average-marks.html"><strong>Average Marks</strong><span>Find the mean of scores.</span></a><a class="tool-link-card" href="grade-calculator.html"><strong>Grade Calculator</strong><span>Estimate a letter grade.</span></a><a class="tool-link-card" href="age-calculator.html"><strong>Age Calculator</strong><span>Calculate age from date of birth.</span></a></div></section>
+<section class="content-section faq-section" id="faq"><h2>Frequently asked questions</h2><h3>How is BMI calculated?</h3><p>BMI is calculated by dividing weight in kilograms by height in metres squared.</p><h3>Are adult BMI categories suitable for teenagers?</h3><p>No. Children and teenagers need age- and sex-specific growth charts. This calculator will not assign an adult category to anyone under 18.</p><h3>Is BMI a diagnosis?</h3><p>No. BMI is a screening measure only and should not be used on its own to judge health.</p></section>
 </main>
 <footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-mark">C</span><span>Calcora</span></a><p>Smart calculations. Simple solutions.</p><p class="footer-note">Free to use · Calculations run in your browser</p><p class="footer-note"><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a></p></footer>
 </body></html>
