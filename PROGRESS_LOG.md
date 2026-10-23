@@ -49,3 +49,10 @@
 - Grade boundaries and CGPA formulas are labelled as examples; users are told to check official institutional rules.
 - Verification so far: GitHub file contents were fetched successfully after writes. Automated browser testing and live GitHub Pages deployment status are not yet verified.
 - Still to do: thoroughly test calculations and accessibility, finish unique metadata for the homepage, add the remaining supporting pages/tools, generate/verify sitemap and robots.txt, and check Search Console/indexing.
+
+### Premium interface pass — 2026-10-24
+- Added a consistent premium visual layer across the homepage and standalone calculator pages: softer blue-tinted background, clearer card hierarchy, refined spacing, rounder form controls, focus rings, and subtle hover states.
+- Moved each standalone calculator page's FAQ section after the related-calculators section so FAQ sits immediately before the footer.
+- Added a homepage FAQ section at the bottom of the main content, immediately before the footer.
+- No calculator JavaScript was changed in this visual pass.
+- Live Pages deployment and visual browser testing are not claimed as verified.
