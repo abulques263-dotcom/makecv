@@ -59,6 +59,11 @@
       if(!positive(principal)||rate===null||rate<0||!positive(years)){fail("Enter a principal greater than zero, a non-negative annual rate, and a time period greater than zero.");return;}
       const interest=principal*rate*years/100;
       success(fmt(principal+interest),"Simple interest: "+fmt(interest)+". Formula: principal × annual rate × time ÷ 100. Assumes the rate stays constant and time is in years.");
+    } else if(tool==="bmi"){
+      const weight=num("weight"), height=num("height");
+      if(!positive(weight)||!positive(height)||weight>500||height<50||height>250){fail("Enter a weight from 1–500 kg and a height from 50–250 cm.");return;}
+      const metres=height/100, bmi=weight/(metres*metres);
+      success(fmt(bmi)+" kg/m²","BMI is a screening measure, not a diagnosis. Adult cut-offs should not be used for children or teenagers; people under 18 need age- and sex-specific interpretation from a qualified health professional.");
     } else if(tool==="date"){
       const start=$("start-date").value, end=$("end-date").value;
       if(!start||!end){fail("Choose both a start date and an end date.");return;}
