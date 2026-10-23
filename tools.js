@@ -103,7 +103,6 @@
   });
   const scale=$("scale");
   if(scale){const custom=$("custom-fields");const sync=()=>{custom.hidden=scale.value!=="custom";};scale.addEventListener("change",sync);sync();}
-})();
   const mealForm=$("meal-form");
   if(mealForm){
     mealForm.addEventListener("submit",event=>{
@@ -140,3 +139,4 @@
       mealOutput.appendChild(list); mealResult.hidden=false;
     });
   }
+})();
