@@ -9,6 +9,38 @@
   const output = $("tool-output");
   const detail = $("tool-detail");
   const fmt = n => new Intl.NumberFormat(undefined,{maximumFractionDigits:4}).format(n);
+  let bmiUnitMode = "metric";
+  const bmiUnitButtons = document.querySelectorAll("[data-bmi-unit]");
+  const bmiHeightMetric = $("height");
+  const bmiHeightUs = $("height-feet");
+  const bmiHeightInches = $("height-inches");
+  const bmiWeightUnit = $("weight-unit");
+  const setBmiUnit = mode => {
+    bmiUnitMode = mode;
+    bmiUnitButtons.forEach(button => {
+      const active = button.dataset.bmiUnit === mode;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    const metricHeight = document.querySelector(".bmi-height-metric");
+    const usHeight = document.querySelector(".bmi-height-us");
+    if(metricHeight) metricHeight.hidden = mode === "us";
+    if(usHeight) usHeight.hidden = mode !== "us";
+    if(bmiWeightUnit) bmiWeightUnit.textContent = mode === "us" ? "lb" : "kg";
+    if(bmiHeightMetric) bmiHeightMetric.required = mode !== "us";
+    if(bmiHeightUs) bmiHeightUs.required = mode === "us";
+    if(bmiHeightInches) bmiHeightInches.required = mode === "us";
+  };
+  bmiUnitButtons.forEach(button => button.addEventListener("click", () => setBmiUnit(button.dataset.bmiUnit)));
+  const bmiForm = $("tool-form");
+  if(bmiForm && bmiForm.dataset.tool === "bmi") {
+    bmiForm.addEventListener("reset", () => setTimeout(() => {
+      setBmiUnit("metric");
+      const result = $("tool-result");
+      if(result) result.hidden = true;
+    }, 0));
+  }
+
   const fail = msg => { error.textContent=msg; result.hidden=true; };
   const success = (value, message) => { error.textContent=""; output.textContent=value; detail.textContent=message; result.hidden=false; };
   const num = id => { const el=$(id); if(!el || el.value.trim()==="") return null; const n=Number(el.value); return Number.isFinite(n)?n:null; };
@@ -60,19 +92,37 @@
       const interest=principal*rate*years/100;
       success(fmt(principal+interest),"Simple interest: "+fmt(interest)+". Formula: principal × annual rate × time ÷ 100. Assumes the rate stays constant and time is in years.");
     } else if(tool==="bmi"){
-      const weight=num("weight"), height=num("height"), age=num("age");
-      if(!positive(weight)||!positive(height)||!Number.isInteger(age)||age<1||age>120||weight>500||height<50||height>250){fail("Enter a valid age (1–120 years), weight (1–500 kg), and height (50–250 cm).");return;}
-      const metres=height/100, bmi=weight/(metres*metres);
-      if(age<18){
-        success(fmt(bmi)+" kg/m²","Teen BMI needs age- and sex-specific growth charts, so this calculator cannot reliably label it as overweight or okay.");
-      } else {
-        let category;
-        if(bmi<18.5) category="Below the usual adult BMI range";
-        else if(bmi<25) category="Weight is in the usual adult BMI range";
-        else if(bmi<30) category="Overweight range";
-        else category="Obesity range";
-        success(fmt(bmi)+" kg/m²",category);
-      }
+      const age=num("age"), weightRaw=num("weight"), metric=$("bmi-unit-mode") ? $("bmi-unit-mode").value : (document.querySelector(".bmi-unit-tab.is-active")?.dataset.bmiUnit || "metric");
+      const heightCm=metric==="us" ? ((num("height-feet")||0)*12+(num("height-inches")||0))*2.54 : num("height");
+      const weightKg=metric==="us" ? weightRaw*0.45359237 : weightRaw;
+      if(!Number.isInteger(age)||age<2||age>120){fail("Enter an age from 2 to 120 years.");return;}
+      if(!positive(weightRaw)||!Number.isFinite(weightKg)||weightKg>700){fail("Enter a valid positive weight.");return;}
+      if(!positive(heightCm)||heightCm<50||heightCm>300){fail("Enter a valid height between 50 and 300 cm (or the equivalent US height).");return;}
+      if(metric==="us" && (!positive(num("height-feet")) || num("height-inches")===null || num("height-inches")<0 || num("height-inches")>=12)){fail("Enter valid height in feet and inches (0–11.9 inches).");return;}
+      const metres=heightCm/100, bmi=weightKg/(metres*metres), prime=bmi/25, ponderal=weightKg/(metres*metres*metres);
+      const teen=age<18;
+      let category="BMI calculated", message="BMI is a screening measure, not a diagnosis.";
+      if(teen){message="BMI = "+fmt(bmi)+" kg/m². For people under 18, age- and sex-specific growth charts are needed to interpret BMI; adult categories do not apply.";}
+      else if(bmi<16){category="Severe thinness";message="Adult BMI category: severe thinness (below 16). BMI is a screening measure, not a diagnosis.";}
+      else if(bmi<17){category="Moderate thinness";message="Adult BMI category: moderate thinness (16–16.9). BMI is a screening measure, not a diagnosis.";}
+      else if(bmi<18.5){category="Mild thinness";message="Adult BMI category: mild thinness (17–18.4). BMI is a screening measure, not a diagnosis.";}
+      else if(bmi<25){category="Usual adult range";message="Adult BMI category: usual adult range (18.5–24.9). BMI is a screening measure, not a diagnosis.";}
+      else if(bmi<30){category="Overweight range";message="Adult BMI category: overweight range (25–29.9). BMI is a screening measure, not a diagnosis.";}
+      else if(bmi<35){category="Obesity class I";message="Adult BMI category: obesity class I (30–34.9). BMI is a screening measure, not a diagnosis.";}
+      else if(bmi<40){category="Obesity class II";message="Adult BMI category: obesity class II (35–39.9). BMI is a screening measure, not a diagnosis.";}
+      else {category="Obesity class III";message="Adult BMI category: obesity class III (40 and above). BMI is a screening measure, not a diagnosis.";}
+      success(fmt(bmi)+" kg/m²",message);
+      const pill=$("bmi-category-pill"), marker=$("bmi-meter-marker"), teenNote=$("bmi-teen-note");
+      if(pill) pill.textContent=teen?"Teen result — no adult category":category;
+      if(marker) marker.style.left=teen?"50%":Math.max(1,Math.min(99,(Math.min(bmi,45)/45)*100))+"%";
+      if(teenNote) teenNote.hidden=!teen;
+      const ref=$("bmi-reference"), primeOut=$("bmi-prime"), piOut=$("bmi-ponderal"), unitsOut=$("bmi-units-summary");
+      if(ref) ref.textContent=teen?"Not applicable under 18":"18.5–24.9 kg/m²";
+      if(primeOut) primeOut.textContent=teen?"Not interpreted":fmt(prime);
+      if(piOut) piOut.textContent=teen?"Not interpreted":fmt(ponderal)+" kg/m³";
+      if(unitsOut) unitsOut.textContent=metric==="us"?"lb / ft / in":"kg / cm";
+      const meter=$("bmi-meter");
+      if(meter) meter.setAttribute("aria-label",teen?"Adult BMI scale is not used for teens":"BMI "+fmt(bmi)+", "+category);
     } else if(tool==="date"){
       const start=$("start-date").value, end=$("end-date").value;
       if(!start||!end){fail("Choose both a start date and an end date.");return;}
