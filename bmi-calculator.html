@@ -2,45 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102a43">
-<meta name="description" content="Use Calcora's free BMI calculator to calculate body mass index from height and weight and view the adult BMI category.">
+<meta name="description" content="Free BMI calculator with metric and US units, age, gender, BMI categories, BMI Prime, Ponderal Index and printable results.">
 <link rel="canonical" href="https://abulques263-dotcom.github.io/makecv/bmi-calculator.html"><title>BMI Calculator | Calcora</title>
 <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="tools.css"><script src="tools.js" defer></script>
 </head>
 <body class="bmi-page"><a class="skip-link" href="#tool-form">Skip to calculator</a>
 <header class="site-header"><a class="brand" href="index.html" aria-label="Calcora home"><span class="brand-mark">C</span><span>Calcora</span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html">Percentage</a><a href="cgpa-to-percentage.html">CGPA</a><a href="required-marks.html">Required marks</a><a href="average-marks.html">Average</a><a href="grade-calculator.html">Grade</a><a href="age-calculator.html">Age</a><a href="date-calculator.html">Date</a><a href="discount-calculator.html">Discount</a><a href="simple-interest.html">Interest</a><a href="exam-countdown.html">Exam countdown</a><a href="bmi-calculator.html" aria-current="page">BMI</a></nav><span class="header-pill">Free online tools</span></header>
 <main class="tool-page bmi-layout">
-<section class="tool-hero"><p class="eyebrow"><span class="eyebrow-dot"></span> HEALTH CALCULATOR</p><h1>BMI Calculator</h1><p>Calculate your Body Mass Index (BMI) using your height and weight.</p></section>
+<section class="tool-hero"><p class="eyebrow"><span class="eyebrow-dot"></span> CALCORA HEALTH CALCULATOR</p><h1>BMI Calculator</h1><p>Calculate Body Mass Index using your age, gender, height and weight. Choose your preferred units below.</p></section>
 <div class="bmi-columns">
 <section class="tool-card bmi-calculator-card" aria-label="BMI calculator">
-<div class="bmi-card-heading"><div><span class="bmi-kicker">YOUR MEASUREMENTS</span><h2>Enter your details</h2></div><span class="bmi-mini-icon" aria-hidden="true">↗</span></div>
+<div class="bmi-card-heading"><div><span class="bmi-kicker">BODY MASS INDEX</span><h2>Enter your details</h2></div><span class="bmi-mini-icon" aria-hidden="true">↗</span></div>
+<div class="bmi-unit-tabs" role="group" aria-label="Unit system"><button type="button" class="bmi-unit-tab is-active" data-bmi-unit="metric" aria-pressed="true">Metric units</button><button type="button" class="bmi-unit-tab" data-bmi-unit="us" aria-pressed="false">US units</button><button type="button" class="bmi-unit-tab" data-bmi-unit="other" aria-pressed="false">Other units</button></div>
 <form id="tool-form" class="tool-form" data-tool="bmi">
-<div class="field-grid">
-<div class="field"><label for="weight">Weight</label><div class="bmi-input-wrap"><input id="weight" type="number" min="1" max="500" step="any" inputmode="decimal" placeholder="68" required><span>kg</span></div></div>
-<div class="field"><label for="height">Height</label><div class="bmi-input-wrap"><input id="height" type="number" min="50" max="250" step="any" inputmode="decimal" placeholder="170" required><span>cm</span></div></div>
-<div class="field bmi-age-field"><label for="age">Age</label><div class="bmi-input-wrap"><input id="age" type="number" min="1" max="120" step="1" inputmode="numeric" placeholder="25" required><span>years</span></div></div>
+<div class="field-grid bmi-person-grid">
+<div class="field"><label for="age">Age</label><div class="bmi-input-wrap"><input id="age" type="number" min="2" max="120" step="1" inputmode="numeric" placeholder="e.g. 25" value="25" required><span>years</span></div><small>Ages 2–120</small></div>
+<fieldset class="field bmi-gender-field"><legend>Gender</legend><div class="bmi-gender-options"><label><input type="radio" name="gender" value="male" checked> Male</label><label><input type="radio" name="gender" value="female"> Female</label></div><small>Used for reference only</small></fieldset>
+<div class="field bmi-height-metric"><label for="height">Height</label><div class="bmi-input-wrap"><input id="height" type="number" min="50" max="300" step="any" inputmode="decimal" placeholder="e.g. 170" value="170" required><span>cm</span></div></div>
+<div class="field bmi-height-us" hidden><label>Height</label><div class="bmi-dual-inputs"><div class="bmi-input-wrap"><input id="height-feet" type="number" min="1" max="8" step="1" value="5" inputmode="numeric" aria-label="Height in feet"><span>ft</span></div><div class="bmi-input-wrap"><input id="height-inches" type="number" min="0" max="11.9" step="any" value="7" inputmode="decimal" aria-label="Height in inches"><span>in</span></div></div></div>
+<div class="field"><label for="weight">Weight</label><div class="bmi-input-wrap"><input id="weight" type="number" min="1" max="700" step="any" inputmode="decimal" placeholder="e.g. 68" value="68" required><span id="weight-unit">kg</span></div></div>
 </div>
 <p id="tool-error" class="tool-error" role="alert" aria-live="polite"></p>
-<div class="tool-actions"><button class="button button-primary" type="submit">Calculate BMI <span aria-hidden="true">→</span></button><button class="button button-quiet" type="reset" onclick="document.getElementById('tool-result').hidden=true;document.getElementById('tool-error').textContent=''">Reset</button></div>
+<div class="tool-actions"><button class="button button-primary" type="submit">Calculate BMI <span aria-hidden="true">→</span></button><button class="button button-quiet" type="reset" id="bmi-reset">Clear</button></div>
 </form>
-<section id="tool-result" class="tool-result bmi-result" aria-live="polite" hidden><div class="bmi-result-top"><span class="bmi-kicker">YOUR BMI RESULT</span><span class="bmi-result-symbol" aria-hidden="true">✓</span></div><output id="tool-output"></output><p id="tool-detail"></p></section>
 <div class="bmi-privacy"><span aria-hidden="true">🔒</span><span>Your measurements are calculated in your browser and are not sent to a server.</span></div>
 </section>
-<aside class="bmi-side-card">
-<div class="bmi-side-heading"><span class="bmi-kicker">BMI REFERENCE</span><h2>Adult BMI categories</h2><p>For adults aged 18 and over, BMI is grouped into these general ranges.</p></div>
-<div class="bmi-scale" role="img" aria-label="Adult BMI categories: below 18.5 below usual range, 18.5 to 24.9 usual range, 25 to 29.9 overweight range, 30 and above obesity range.">
-<div class="bmi-scale-segment bmi-under"></div><div class="bmi-scale-segment bmi-usual"></div><div class="bmi-scale-segment bmi-over"></div><div class="bmi-scale-segment bmi-obese"></div>
+<section id="tool-result" class="bmi-results-panel" aria-live="polite" hidden>
+<div class="bmi-result-card"><div class="bmi-result-header"><div><span class="bmi-kicker">YOUR RESULT</span><h2>Body Mass Index</h2></div><button type="button" class="bmi-print-button" onclick="window.print()">Print result</button></div>
+<div class="bmi-score-row"><output id="tool-output">—</output><span id="bmi-category-pill" class="bmi-category-pill">BMI result</span></div>
+<div class="bmi-meter" aria-label="Adult BMI reference scale"><span class="bmi-meter-marker" id="bmi-meter-marker"></span><span class="bmi-meter-segment bmi-meter-low"></span><span class="bmi-meter-segment bmi-meter-normal"></span><span class="bmi-meter-segment bmi-meter-high"></span><span class="bmi-meter-segment bmi-meter-obese"></span></div>
+<div class="bmi-meter-labels"><span>Below range</span><span>Usual range</span><span>Overweight</span><span>Obesity</span></div>
+<p id="tool-detail" class="bmi-result-description"></p>
+<div class="bmi-stat-grid"><div><span>Healthy adult BMI reference</span><strong id="bmi-reference">18.5–24.9</strong></div><div><span>BMI Prime</span><strong id="bmi-prime">—</strong></div><div><span>Ponderal Index</span><strong id="bmi-ponderal">—</strong></div><div><span>Height and weight units</span><strong id="bmi-units-summary">—</strong></div></div>
+<p id="bmi-teen-note" class="bmi-teen-note" hidden>For children and teenagers, BMI must be interpreted using age- and sex-specific growth charts. This result does not assign an adult weight category.</p>
 </div>
-<div class="bmi-category-list">
-<div class="bmi-category"><span class="bmi-category-dot bmi-under-dot"></span><span>Below usual range</span><strong>Below 18.5</strong></div>
-<div class="bmi-category"><span class="bmi-category-dot bmi-usual-dot"></span><span>Usual adult range</span><strong>18.5–24.9</strong></div>
-<div class="bmi-category"><span class="bmi-category-dot bmi-over-dot"></span><span>Overweight range</span><strong>25.0–29.9</strong></div>
-<div class="bmi-category"><span class="bmi-category-dot bmi-obese-dot"></span><span>Obesity range</span><strong>30 and above</strong></div>
+</section>
 </div>
-<div class="bmi-note"><strong>Important to know</strong><p>BMI is a screening measure, not a diagnosis. It does not measure health on its own.</p></div>
-</aside>
-</div>
-<section class="content-section bmi-related"><h2>More free calculators</h2><div class="tool-links"><a class="tool-link-card" href="index.html"><strong>Percentage Calculator</strong><span>Calculate marks and percentage.</span></a><a class="tool-link-card" href="cgpa-to-percentage.html"><strong>CGPA Converter</strong><span>Choose a conversion scale.</span></a><a class="tool-link-card" href="required-marks.html"><strong>Required Marks</strong><span>Plan for a target score.</span></a><a class="tool-link-card" href="average-marks.html"><strong>Average Marks</strong><span>Find the mean of scores.</span></a><a class="tool-link-card" href="grade-calculator.html"><strong>Grade Calculator</strong><span>Estimate a letter grade.</span></a><a class="tool-link-card" href="age-calculator.html"><strong>Age Calculator</strong><span>Calculate age from date of birth.</span></a></div></section>
-<section class="content-section faq-section" id="faq"><h2>Frequently asked questions</h2><h3>How is BMI calculated?</h3><p>BMI is calculated by dividing weight in kilograms by height in metres squared.</p><h3>Are adult BMI categories suitable for teenagers?</h3><p>No. Children and teenagers need age- and sex-specific growth charts. This calculator will not assign an adult category to anyone under 18.</p><h3>Is BMI a diagnosis?</h3><p>No. BMI is a screening measure only and should not be used on its own to judge health.</p></section>
+<section class="content-section bmi-reference-section"><h2>BMI categories for adults</h2><p>These general categories are for adults only. They are a screening reference, not a diagnosis.</p><div class="bmi-table-wrap"><table class="bmi-reference-table"><thead><tr><th>Classification</th><th>BMI (kg/m²)</th></tr></thead><tbody><tr><td>Severe thinness</td><td>Below 16.0</td></tr><tr><td>Moderate thinness</td><td>16.0–16.9</td></tr><tr><td>Mild thinness</td><td>17.0–18.4</td></tr><tr><td>Usual adult range</td><td>18.5–24.9</td></tr><tr><td>Overweight range</td><td>25.0–29.9</td></tr><tr><td>Obesity class I</td><td>30.0–34.9</td></tr><tr><td>Obesity class II</td><td>35.0–39.9</td></tr><tr><td>Obesity class III</td><td>40.0 and above</td></tr></tbody></table></div></section>
+<section class="content-section bmi-explainer"><h2>About BMI</h2><p>Body Mass Index (BMI) is calculated from weight and height. It is a broad screening measure and cannot distinguish muscle from fat or assess health on its own. Gender does not change the standard adult BMI cutoffs; age is important when interpreting BMI for children and teens.</p><h3>How BMI is calculated</h3><p><strong>Metric:</strong> BMI = weight in kilograms ÷ (height in metres × height in metres).</p><p><strong>US units:</strong> BMI = 703 × weight in pounds ÷ (height in inches × height in inches).</p><h3>What are BMI Prime and Ponderal Index?</h3><p>BMI Prime compares BMI with the upper end of the usual adult reference range (25). Ponderal Index uses weight and height cubed. These are additional mathematical measures, not diagnoses.</p></section>
+<section class="content-section faq-section" id="faq"><h2>Frequently asked questions</h2><h3>Does gender change the adult BMI category?</h3><p>The standard adult BMI cutoffs are the same for men and women. Gender is included here as a reference field, not as a separate adult cutoff.</p><h3>Can I use this calculator for a teenager?</h3><p>You can calculate the BMI number, but children and teenagers need age- and sex-specific growth charts for interpretation. This page will not label their result using adult categories.</p><h3>Is BMI a diagnosis?</h3><p>No. BMI is a screening measure and should not be used on its own to judge health.</p></section>
 </main>
 <footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-mark">C</span><span>Calcora</span></a><p>Smart calculations. Simple solutions.</p><p class="footer-note">Free to use · Calculations run in your browser</p><p class="footer-note"><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a></p></footer>
 </body></html>
