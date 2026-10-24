@@ -4,6 +4,12 @@
   const $ = (id) => document.getElementById(id);
   const form = $("tool-form");
   if (!form) return;
+  // Consistent print / save-as-PDF action on every calculator page using this script.
+  if (!document.getElementById("tool-print-button")) {
+    const printButton=document.createElement("button"); printButton.type="button"; printButton.id="tool-print-button"; printButton.className="button button-primary tool-print-button"; printButton.textContent="Print / Save results"; printButton.addEventListener("click",()=>window.print());
+    const resultPanel=document.getElementById("tool-result"); (resultPanel||form).insertAdjacentElement("afterend",printButton);
+  }
+
   if (!document.getElementById("tool-print-button")) { const b=document.createElement("button"); b.type="button"; b.id="tool-print-button"; b.className="button button-primary tool-print-button"; b.textContent="Print / Save results"; b.addEventListener("click",()=>window.print()); const resultPanel=document.getElementById("tool-result"); (resultPanel||form).insertAdjacentElement("afterend",b); }
   const error = $("tool-error");
   const result = $("tool-result");
