@@ -119,3 +119,12 @@
 - Added general public-health movement guidance with age distinctions, plus cautions to adapt activity and avoid treating the guidance as an individual prescription.
 - Repeatedly disclosed that the meal helper is rule-based and AI is not connected. No secure backend or provider credentials were found in the static GitHub Pages project, so no fake AI integration or browser-exposed API key was added. Real AI requires a secure server-side endpoint and configured provider credentials; provider usage may cost money.
 - Commits: `9919a9a` (BMI result logic) and `2c67e51` (page guidance). Automated/browser/live deployment testing has not been verified.
+
+
+### CV builder React architecture — Step 3 foundation — 2026-10-25
+- Added TypeScript resume data interfaces for personal details, experience, education, skills, languages, projects, certifications, custom sections, and design preferences.
+- Added Zod schemas for core resume structures and full resume payload validation.
+- Added a fresh-resume factory with default section ordering, visibility flags, and A4 design defaults.
+- Added a shared unique-ID helper and a Zustand + Immer store with add/update/delete actions for repeatable entries, design updates, section ordering/visibility, validated resume loading, reset, and saved timestamp actions.
+- Files: `src/features/resume-builder/schema/resume.types.ts`, `src/features/resume-builder/schema/resume.schema.ts`, `src/features/resume-builder/utils/id.ts`, `src/features/resume-builder/store/initialResume.ts`, `src/features/resume-builder/store/resumeStore.ts`.
+- These files are foundation source only. React/Vite/Tailwind dependencies, app entry point, UI components, autosave adapter, tests, and browser/build verification have not been completed yet.
