@@ -67,7 +67,57 @@ export default function App() {
   const [active, setActive] = useState<SectionKey>("personal");
   const [mobileNav, setMobileNav] = useState(false);
   const [previewMobile, setPreviewMobile] = useState(false);
-  const [saved, setSaved] = useState(true);\n  const [hydrated, setHydrated] = useState(false);\n  const importInput = useRef<HTMLInputElement>(null);\n  const loadResume = useResumeStore((s) => s.loadResume);\n\n  useEffect(() => {\n    try {\n      const raw = window.localStorage.getItem("calcora.resume.draft.v1");\n      if (raw) loadResume(JSON.parse(raw));\n    } catch (error) {\n      console.warn("Could not restore the saved resume draft.", error);\n    } finally { setHydrated(true); }\n  }, [loadResume]);\n\n  useEffect(() => {\n    if (!hydrated) return;\n    let timer = 0;\n    const unsubscribe = useResumeStore.subscribe((state) => {\n      window.clearTimeout(timer);\n      setSaved(false);\n      timer = window.setTimeout(() => {\n        try {\n          window.localStorage.setItem("calcora.resume.draft.v1", JSON.stringify(state.resume));\n          setSaved(true);\n        } catch (error) {\n          console.warn("Draft could not be saved in this browser.", error);\n          setSaved(false);\n        }\n      }, 350);\n    });\n    return () => { window.clearTimeout(timer); unsubscribe(); };\n  }, [hydrated]);\n\n  const exportData = () => {\n    const blob = new Blob([JSON.stringify(resume, null, 2)], { type: "application/json" });\n    const url = URL.createObjectURL(blob);\n    const link = document.createElement("a");\n    link.href = url; link.download = "calcora-resume-data.json"; link.click();\n    URL.revokeObjectURL(url);\n  };\n  const importData = async (file?: File) => {\n    if (!file) return;\n    try {\n      const candidate: unknown = JSON.parse(await file.text());\n      loadResume(candidate);\n      setSaved(false);\n      window.alert("Resume data imported successfully.");\n    } catch (error) {\n      window.alert(error instanceof Error ? error.message : "This file is not a valid Calcora resume export.");\n    } finally { if (importInput.current) importInput.current.value = ""; }\n  };
+  const [saved, setSaved] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
+  const importInput = useRef<HTMLInputElement>(null);
+  const loadResume = useResumeStore((s) => s.loadResume);
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem("calcora.resume.draft.v1");
+      if (raw) loadResume(JSON.parse(raw));
+    } catch (error) {
+      console.warn("Could not restore the saved resume draft.", error);
+    } finally { setHydrated(true); }
+  }, [loadResume]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    let timer = 0;
+    const unsubscribe = useResumeStore.subscribe((state) => {
+      window.clearTimeout(timer);
+      setSaved(false);
+      timer = window.setTimeout(() => {
+        try {
+          window.localStorage.setItem("calcora.resume.draft.v1", JSON.stringify(state.resume));
+          setSaved(true);
+        } catch (error) {
+          console.warn("Draft could not be saved in this browser.", error);
+          setSaved(false);
+        }
+      }, 350);
+    });
+    return () => { window.clearTimeout(timer); unsubscribe(); };
+  }, [hydrated]);
+
+  const exportData = () => {
+    const blob = new Blob([JSON.stringify(resume, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url; link.download = "calcora-resume-data.json"; link.click();
+    URL.revokeObjectURL(url);
+  };
+  const importData = async (file?: File) => {
+    if (!file) return;
+    try {
+      const candidate: unknown = JSON.parse(await file.text());
+      loadResume(candidate);
+      setSaved(false);
+      window.alert("Resume data imported successfully.");
+    } catch (error) {
+      window.alert(error instanceof Error ? error.message : "This file is not a valid Calcora resume export.");
+    } finally { if (importInput.current) importInput.current.value = ""; }
+  };
   const personal = resume.personalDetails;
   const setPersonal = (patch: Omit<Partial<typeof personal>, "location" | "photo"> & { location?: Partial<typeof personal.location>; photo?: Partial<typeof personal.photo> }) => { updatePersonalDetails(patch); setSaved(false); };
   const completion = useMemo(() => {
