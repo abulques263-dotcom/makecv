@@ -6,6 +6,7 @@ import type {
   LanguageItem, ProjectItem, CertificationItem, CustomSection, ResumeDesign
 } from "../schema/resume.types";
 import { createInitialResume } from "./initialResume";
+import { createId } from "../utils/id";
 
 type Patch<T> = Partial<T>;
 interface ResumeStore {
@@ -55,7 +56,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addExperience: (item = {}) => {
-    const id = item.id ?? `exp_${crypto.randomUUID()}`;
+    const id = item.id ?? createId("exp");
     set((state) => {
       state.resume.experience.push({
         id, company: "", position: "", employmentType: "", location: "",
@@ -76,7 +77,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addEducation: (item = {}) => {
-    const id = item.id ?? `edu_${crypto.randomUUID()}`;
+    const id = item.id ?? createId("edu");
     set((state) => {
       state.resume.education.push({
         id, institution: "", degree: "", fieldOfStudy: "", location: "",
@@ -97,7 +98,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addSkill: (item = {}) => {
-    const id = item.id ?? `skill_${crypto.randomUUID()}`;
+    const id = item.id ?? createId("skill");
     set((state) => {
       state.resume.skills.push({ id, name: "", level: null, visible: true, ...item, id });
       touch(state.resume);
@@ -114,7 +115,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addLanguage: (item = {}) => {
-    const id = item.id ?? `lang_${crypto.randomUUID()}`;
+    const id = item.id ?? createId("lang");
     set((state) => {
       state.resume.languages.push({ id, name: "", proficiency: "", visible: true, ...item, id });
       touch(state.resume);
@@ -131,7 +132,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addProject: (item = {}) => {
-    const id = item.id ?? `project_${crypto.randomUUID()}`;
+    const id = item.id ?? createId("project");
     set((state) => {
       state.resume.projects.push({
         id, name: "", role: "", url: "", startDate: "", endDate: "",
@@ -151,7 +152,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addCertification: (item = {}) => {
-    const id = item.id ?? `cert_${crypto.randomUUID()}`;
+    const id = item.id ?? createId("cert");
     set((state) => {
       state.resume.certifications.push({
         id, name: "", issuer: "", issueDate: "", expiryDate: "",
@@ -171,7 +172,7 @@ export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   }),
 
   addCustomSection: (title = "Additional Information") => {
-    const id = `custom_${crypto.randomUUID()}`;
+    const id = createId("custom");
     set((state) => {
       state.resume.customSections.push({ id, title, visible: true, items: [] });
       if (!state.resume.sectionOrder.includes("customSections")) state.resume.sectionOrder.push("customSections");
