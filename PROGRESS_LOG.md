@@ -136,3 +136,12 @@
 - Added Vite configuration with `react-app/` as the app root and build output configured to `cv-editor/`; public base path is `/makecv/cv-editor/`.
 - Added TypeScript project configs, React entry point, Tailwind stylesheet, minimal scaffold screen, and setup notes in `README-REACT.md`.
 - No React editor or live preview components have been built yet. Dependencies have not been installed and build/typecheck/browser verification has not been run. GitHub Pages publishing of generated `cv-editor/` assets is not configured yet, so this scaffold is not live on the public site.
+
+
+### React resume editor shell — Step 5 — 2026-10-25
+- Replaced the placeholder React screen with a responsive resume-editor workspace: section navigation, basic details, summary, work experience, education, skills, and appearance controls.
+- Added a live A4-style resume preview connected to the Zustand store; edits to the main fields and repeatable experience/education/skills entries render in the preview.
+- Added accent-color controls, profile-photo display toggle, a completion indicator, responsive mobile preview mode, and browser print / Save as PDF entry points.
+- Fixed the personal-details store action type so nested location and photo fields can be updated partially from individual form fields.
+- Changes are committed to `main`, but dependencies have not been installed and TypeScript/build/browser tests have not been run in this environment. The generated `cv-editor/` bundle is not deployed, so this React editor is not yet live at the public URL.
+- Next: add browser-side draft persistence and resume export/import safeguards, then run a production build and typecheck before configuring Pages deployment.
