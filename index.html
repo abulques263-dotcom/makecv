@@ -1,82 +1,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102a43">
-  <meta name="description" content="Free marks, percentage, grade, CGPA and study calculators for Indian students. Calculate scores quickly and create a professional CV for free.">
-  <title>Calcora — Free Marks, Grade & Percentage Calculators</title>
-  <link rel="canonical" href="https://abulques263-dotcom.github.io/makecv/"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="tools.css">
-  <script src="app.js" defer></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#142746">
+<meta name="description" content="Free marks and percentage calculator for Indian students. Calculate your score, check a target, print or save results as PDF, and make a CV.">
+<title>Calcora — Marks & Percentage Calculator</title>
+<link rel="canonical" href="https://abulques263-dotcom.github.io/makecv/"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="tools.css"><script src="app.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#calculator">Skip to calculator</a>
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="Calcora home"><span class="brand-mark">C</span><span>Calcora</span></a>
-    <span class="header-pill">Free student tool</span>
-  </header>
-  <main class="page-shell">
-    <section class="hero">
-      <p class="eyebrow"><span class="eyebrow-dot"></span> STUDY SMARTER</p>
-      <h1>Your marks, made <span>simple.</span></h1>
-      <p class="hero-copy">Calculate marks, percentages and target scores. Make a professional CV too — free, simple and with no sign-up.</p>
-      <div class="trust-row"><span>✓ Instant results</span><span>✓ Free to use</span><span>✓ No sign-up</span></div><a class="hero-cta" href="#calculator">Calculate my marks <span aria-hidden="true">↓</span></a>
-    </section>
-    <section class="calculator-card" id="calculator" aria-labelledby="calc-title">
-      <div class="card-heading">
-        <div><p class="section-kicker">YOUR SCORE SHEET</p><h2 id="calc-title">Marks calculator</h2></div>
-        <button id="reset" class="button button-quiet" type="button">Reset</button>
-      </div>
-      <p class="helper">Apne subject ke marks bharein — scored marks aur total marks. Add subjects, then calculate your percentage.</p>
-      <div class="subjects-head" aria-hidden="true"><span>Subject</span><span>Marks scored</span><span>Out of</span><span></span></div>
-      <div id="subjects" class="subjects">
-        <div class="subject-row">
-          <label class="sr-only" for="subject-1">Subject 1 name</label><input id="subject-1" name="subject-name" type="text" value="Subject 1" maxlength="50" placeholder="Subject name">
-          <label class="sr-only" for="scored-1">Marks scored for subject 1</label><input id="scored-1" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 78">
-          <label class="sr-only" for="possible-1">Maximum marks for subject 1</label><input id="possible-1" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 100">
-          <button class="remove-row" type="button" aria-label="Remove subject 1" disabled>×</button>
-        </div>
-        <div class="subject-row">
-          <label class="sr-only" for="subject-2">Subject 2 name</label><input id="subject-2" name="subject-name" type="text" value="Subject 2" maxlength="50" placeholder="Subject name">
-          <label class="sr-only" for="scored-2">Marks scored for subject 2</label><input id="scored-2" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 82">
-          <label class="sr-only" for="possible-2">Maximum marks for subject 2</label><input id="possible-2" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 100">
-          <button class="remove-row" type="button" aria-label="Remove subject 2">×</button>
-        </div>
-        <div class="subject-row">
-          <label class="sr-only" for="subject-3">Subject 3 name</label><input id="subject-3" name="subject-name" type="text" value="Subject 3" maxlength="50" placeholder="Subject name">
-          <label class="sr-only" for="scored-3">Marks scored for subject 3</label><input id="scored-3" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 91">
-          <label class="sr-only" for="possible-3">Maximum marks for subject 3</label><input id="possible-3" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="e.g. 100">
-          <button class="remove-row" type="button" aria-label="Remove subject 3">×</button>
-        </div>
-      </div>
-      <button id="add-subject" class="button button-outline" type="button">＋ Add another subject</button>
-      <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
-      <button id="calculate" class="button button-primary" type="button">Calculate percentage <span aria-hidden="true">→</span></button>
-      <div id="results" class="results" aria-live="polite" aria-atomic="true">
-        <div class="result-main"><div><p class="result-label">YOUR PERCENTAGE</p><div class="percentage-line"><span id="percentage-result">—</span><span class="percent-sign">%</span></div></div><div class="result-icon" aria-hidden="true">↗</div></div>
-        <div class="result-stats"><div><span>Total marks</span><strong id="total-result">— / —</strong></div><div><span>Subjects counted</span><strong id="count-result">—</strong></div></div>
-      </div>
-      <div class="target-box">
-        <label for="target-percentage">Have a target percentage?</label>
-        <div class="target-input-wrap"><input id="target-percentage" type="number" min="0" max="100" step="any" placeholder="e.g. 85"><span>%</span></div>
-        <p id="target-message" class="target-message">Calculate your marks first to see your target status.</p>
-      </div>
-      <p class="fine-print">This tool calculates a weighted percentage from the marks entered. Grading, rounding, and CGPA conversion rules can vary by school, board, or university.</p>
-      <div class="action-row"><button id="print" class="button button-quiet" type="button">Print / Save as PDF</button></div>
-    </section>
-    <section class="feature-carousel" aria-label="What you can do with Calcora"><div class="carousel-copy"><p class="section-kicker">ONE SIMPLE TOOLKIT</p><h2 id="feature-title">Make every mark count.</h2><p id="feature-copy">Calculate percentages, plan your target score, and understand your results in a few easy steps.</p><div class="carousel-actions"><a id="feature-link" href="#calculator" class="button button-primary">Try marks calculator →</a><div class="carousel-controls"><button type="button" id="feature-prev" aria-label="Previous highlight">‹</button><span id="feature-count">01 / 03</span><button type="button" id="feature-next" aria-label="Next highlight">›</button></div></div></div><div class="carousel-visual" aria-hidden="true"><div class="visual-orbit"></div><div class="visual-orbit orbit-two"></div><div class="visual-card"><span class="visual-label" id="visual-label">YOUR SCORE</span><strong id="visual-value">85.5<span>%</span></strong><div class="visual-bar"><i id="visual-bar-fill"></i></div><small id="visual-foot">Clear results. No confusion.</small></div><span class="floating-chip chip-top">✓ Easy to use</span><span class="floating-chip chip-bottom">↗ Instant answer</span></div></section>
-
-    <section class="content-section" aria-labelledby="more-tools-title"><h2 id="more-tools-title">Free tools for study and everyday life</h2><p class="section-intro">Quick, simple calculators—no account required. Build a professional CV with our new free resume maker, too.</p><div class="tool-links"><a class="tool-link-card cv-maker-card" href="cv-maker.html"><strong>Free CV Maker</strong><span>Create a clean, professional resume with live preview and print-to-PDF.</span></a><div class="tool-links"><a class="tool-link-card" href="cgpa-to-percentage.html"><strong>CGPA to Percentage</strong><span>Choose a conversion formula that fits your institution.</span></a><a class="tool-link-card" href="required-marks.html"><strong>Required Marks Calculator</strong><span>Find marks needed for your target percentage.</span></a><a class="tool-link-card" href="average-marks.html"><strong>Average Marks Calculator</strong><span>Calculate the mean of multiple scores.</span></a><a class="tool-link-card" href="grade-calculator.html"><strong>Grade Calculator</strong><span>Estimate a letter grade from your score.</span></a><a class="tool-link-card" href="age-calculator.html"><strong>Age Calculator</strong><span>Calculate age in years, months and days.</span></a><a class="tool-link-card" href="date-calculator.html"><strong>Date Calculator</strong><span>Count days between dates.</span></a><a class="tool-link-card" href="discount-calculator.html"><strong>Discount Calculator</strong><span>Calculate savings and final price.</span></a><a class="tool-link-card" href="simple-interest.html"><strong>Simple Interest Calculator</strong><span>Estimate interest and total amount.</span></a><a class="tool-link-card" href="exam-countdown.html"><strong>Exam Countdown</strong><span>Count days until exam day.</span></a><a class="tool-link-card" href="bmi-calculator.html"><strong>BMI Calculator</strong><span>Calculate BMI from height and weight, with interpretation guidance.</span></a></div></section>
-    
-
-
-    <section class="info-grid" aria-label="How it works">
-      <article class="info-card"><span class="info-number">01</span><h3>Add your subjects</h3><p>Enter the marks you scored and the maximum marks for each subject.</p></article>
-      <article class="info-card"><span class="info-number">02</span><h3>Get your percentage</h3><p>We add all scored marks and divide by the total possible marks.</p></article>
-      <article class="info-card"><span class="info-number">03</span><h3>Plan your target</h3><p>Enter a goal to check whether you have reached it based on your current entries.</p></article>
-    </section>
-  </main>
-  <section class="content-section faq-section" id="faq" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2><h3>How do I calculate my percentage?</h3><p>Divide the marks you earned by the maximum possible marks, then multiply by 100. When subjects have different maximum marks, total the marks first before dividing.</p><h3>Is Calcora free to use?</h3><p>Yes. These calculators are designed to work in your browser without an account.</p><h3>Are my marks uploaded?</h3><p>The percentage calculator performs calculations in your browser. Avoid entering private information on websites unless you understand their privacy practices.</p><h3>Are the results official grades?</h3><p>Use results as estimates. School, board and university grading rules can differ, so check the official policy for formal decisions.</p></section>
-  <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">C</span><span>Calcora</span></a><p>Smart calculations. Simple solutions.</p><p class="footer-note">Free to use · Your marks are processed locally in your browser</p><p class="footer-note"><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a></p></footer>
-</body>
-</html>
+<body class="simple-home">
+<a class="skip-link" href="#calculator">Skip to calculator</a>
+<header class="site-header"><a class="brand" href="./" aria-label="Calcora home"><span class="brand-mark">C</span><span>Calcora</span></a><span class="header-pill">Free · No sign-up</span></header>
+<main class="page-shell simple-shell">
+<section class="simple-intro"><p class="eyebrow"><span class="eyebrow-dot"></span> MADE FOR INDIAN STUDENTS</p><h1>Know your score.<br><span>Plan your next step.</span></h1><p>Enter your marks once. Get your percentage, check your target, then print or save the result as PDF.</p><div class="simple-benefits"><span>✓ Instant calculation</span><span>✓ Works on mobile</span><span>✓ No account needed</span></div></section>
+<section class="calculator-card simple-calculator" id="calculator" aria-labelledby="calc-title">
+<div class="card-heading"><div><p class="section-kicker">STEP 1 · ENTER MARKS</p><h2 id="calc-title">Marks calculator</h2></div><button id="reset" class="button button-quiet" type="button">Clear all</button></div>
+<p class="helper">Har subject ke liye marks scored aur total marks bharein.</p>
+<div class="subjects-head" aria-hidden="true"><span>Subject</span><span>Scored</span><span>Total</span><span></span></div>
+<div id="subjects" class="subjects">
+<div class="subject-row"><label class="sr-only" for="subject-1">Subject 1 name</label><input id="subject-1" name="subject-name" type="text" value="Subject 1" maxlength="50" placeholder="Subject name"><label class="sr-only" for="scored-1">Marks scored for subject 1</label><input id="scored-1" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="0"><label class="sr-only" for="possible-1">Maximum marks for subject 1</label><input id="possible-1" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="100"><button class="remove-row" type="button" aria-label="Remove subject 1" disabled>×</button></div><div class="subject-row"><label class="sr-only" for="subject-2">Subject 2 name</label><input id="subject-2" name="subject-name" type="text" value="Subject 2" maxlength="50" placeholder="Subject name"><label class="sr-only" for="scored-2">Marks scored for subject 2</label><input id="scored-2" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="0"><label class="sr-only" for="possible-2">Maximum marks for subject 2</label><input id="possible-2" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="100"><button class="remove-row" type="button" aria-label="Remove subject 2" >×</button></div><div class="subject-row"><label class="sr-only" for="subject-3">Subject 3 name</label><input id="subject-3" name="subject-name" type="text" value="Subject 3" maxlength="50" placeholder="Subject name"><label class="sr-only" for="scored-3">Marks scored for subject 3</label><input id="scored-3" name="marks-scored" type="number" min="0" step="any" inputmode="decimal" placeholder="0"><label class="sr-only" for="possible-3">Maximum marks for subject 3</label><input id="possible-3" name="marks-possible" type="number" min="0.01" step="any" inputmode="decimal" placeholder="100"><button class="remove-row" type="button" aria-label="Remove subject 3" >×</button></div>
+</div>
+<div class="simple-add-row"><button id="add-subject" class="button button-outline" type="button">＋ Add subject</button><span>Example: 78 out of 100</span></div>
+<p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+<button id="calculate" class="button button-primary simple-calculate" type="button">Calculate my percentage <span aria-hidden="true">→</span></button>
+<div class="simple-results-heading"><p class="section-kicker">STEP 2 · YOUR RESULT</p><span>Ready to print or save</span></div>
+<div id="results" class="results" aria-live="polite" aria-atomic="true"><div class="result-main"><div><p class="result-label">YOUR PERCENTAGE</p><div class="percentage-line"><span id="percentage-result">—</span><span class="percent-sign">%</span></div></div><div class="result-icon" aria-hidden="true">✓</div></div><div class="result-stats"><div><span>Total marks</span><strong id="total-result">— / —</strong></div><div><span>Subjects counted</span><strong id="count-result">—</strong></div></div></div>
+<div class="target-box simple-target"><label for="target-percentage">Your target percentage (optional)</label><div class="target-input-wrap"><input id="target-percentage" type="number" min="0" max="100" step="any" placeholder="e.g. 85"><span>%</span></div><p id="target-message" class="target-message">Enter marks and calculate first to check your target.</p></div>
+<div class="simple-actions"><button id="print" class="button button-primary" type="button">Print / Save as PDF</button><button id="reset-bottom" class="button button-quiet" type="button">Start again</button></div>
+<p class="fine-print">Results are estimates based on the marks entered. Official grading and CGPA rules may vary by school, board or university.</p>
+</section>
+<section class="simple-tools" aria-labelledby="tools-title"><div><p class="section-kicker">MORE FREE TOOLS</p><h2 id="tools-title">Need something else?</h2><p>Choose a tool. Enter your details. Get your result.</p></div><a class="simple-cv-link" href="cv-maker.html"><span class="simple-tool-icon">CV</span><span><strong>Make a professional CV</strong><small>Create, preview, print and save your resume as PDF.</small></span><b>→</b></a><div class="simple-tool-grid">
+<a href="required-marks.html">Required marks <span>→</span></a><a href="cgpa-to-percentage.html">CGPA to percentage <span>→</span></a><a href="average-marks.html">Average marks <span>→</span></a><a href="grade-calculator.html">Grade calculator <span>→</span></a><a href="exam-countdown.html">Exam countdown <span>→</span></a><a href="age-calculator.html">Age calculator <span>→</span></a>
+</div><details class="extra-tools"><summary>View all tools</summary><div><a href="date-calculator.html">Date calculator</a><a href="discount-calculator.html">Discount calculator</a><a href="simple-interest.html">Simple interest calculator</a><a href="bmi-calculator.html">BMI calculator</a></div></details></section>
+</main>
+<footer class="site-footer simple-footer"><a class="brand footer-brand" href="./"><span class="brand-mark">C</span><span>Calcora</span></a><p>Useful tools. Clear answers.</p><p class="footer-note"><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a></p></footer>
+<script>
+document.getElementById('reset-bottom')?.addEventListener('click',()=>document.getElementById('reset')?.click());
+</script>
+</body></html>
