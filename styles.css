@@ -60,3 +60,33 @@ body{background:linear-gradient(180deg,#f1f5ff 0,#f8faff 360px,var(--surface) 72
 
 /* Conversion-focused homepage improvements */
 .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-top:20px;padding:12px 18px;border-radius:12px;background:#2463eb;color:#fff;text-decoration:none;font-size:14px;font-weight:800;box-shadow:0 8px 20px #2463eb22}.hero-cta:hover{background:#1749bd}.section-intro{margin:-8px 0 18px;color:#64748b;font-size:14px;line-height:1.6}.cv-maker-card{border-color:#c8e8da;background:linear-gradient(130deg,#f1fbf6,#fff)}.cv-maker-card strong{color:#13795b}.cv-maker-card:focus-visible,.hero-cta:focus-visible{outline:3px solid #9bb7ff;outline-offset:3px}@media(max-width:600px){.hero-cta{width:100%;min-height:46px}.feature-carousel{margin-top:20px}.content-section h2{font-size:clamp(22px,6vw,28px)}.tool-links{grid-template-columns:minmax(0,1fr)!important}.tool-link-card{min-height:90px}.calculator-card{scroll-margin-top:12px}}
+
+/* Calcora India-first polish: familiar wording, clear tap targets, calm premium surfaces */
+:root{--navy:#142746;--blue:#315fe8;--blue-dark:#2349bc;--green:#147a5b;--surface:#f5f7fc;--line:#e3e8f2}
+body{color:#17243a;background:#f5f7fc}
+.site-header{background:rgba(255,255,255,.96);border-bottom:1px solid #e8edf5}
+.brand{letter-spacing:-.45px}
+.brand-mark{box-shadow:0 5px 14px #315fe82b}
+.header-pill{background:#eef3ff;color:#2349bc;border:1px solid #dce6ff}
+.page-shell{max-width:1120px}
+.hero{padding-top:clamp(28px,5vw,54px);padding-bottom:clamp(22px,4vw,42px)}
+.hero h1{letter-spacing:-1.4px;line-height:1.1}
+.hero-copy{max-width:680px;line-height:1.75}
+.trust-row span{border-color:#e1e8f4;background:#fff}
+.calculator-card,.content-section,.info-card{border-color:#e0e7f1;box-shadow:0 12px 36px rgba(20,39,70,.055)}
+.calculator-card{scroll-margin-top:14px}
+.card-heading h2,.content-section h2{letter-spacing:-.55px}
+.helper,.section-intro{line-height:1.7}
+input,select,textarea{accent-color:#315fe8}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #b6c8ff;outline-offset:2px}
+.button{min-height:44px;border-radius:11px;font-weight:750}
+.button-primary{background:#315fe8}
+.button-primary:hover{background:#2349bc}
+.results{background:linear-gradient(145deg,#f1f5ff,#fff);border-color:#dce6ff}
+.result-label{letter-spacing:1.1px}
+.target-box{background:#f8faff;border-color:#e1e8f5}
+.tool-link-card{transition:border-color .15s,box-shadow .15s,transform .15s}
+.tool-link-card:hover{border-color:#b9caff;box-shadow:0 9px 24px rgba(20,39,70,.07);transform:translateY(-1px)}
+.site-footer{line-height:1.7}
+@media(max-width:600px){.page-shell{padding-left:13px;padding-right:13px}.hero{text-align:left}.hero .trust-row{justify-content:flex-start;gap:7px}.trust-row span{font-size:11px;padding:7px 9px}.calculator-card{padding:17px 13px;border-radius:17px}.subjects-head{font-size:11px}.subject-row input{min-width:0}.button{min-height:46px}.content-section{padding:17px 13px}.tool-link-card{border-radius:13px}.hero-copy{font-size:14px}.card-heading h2{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.tool-link-card{transition:none}.tool-link-card:hover{transform:none}}
