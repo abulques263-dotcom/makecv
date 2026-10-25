@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { FileText, UserRound, BriefcaseBusiness, GraduationCap, Sparkles, Palette, Plus, Trash2, Download, Check, Eye, ChevronDown, Menu, X, Mail, Phone, MapPin, Link as LinkIcon } from "lucide-react";
 import { useResumeStore } from "../../src/features/resume-builder/store/resumeStore";
 
@@ -29,7 +29,7 @@ function ResumePreview() {
   const visibleEducation = resume.education.filter((item) => item.visible && (item.institution || item.degree));
   const visibleSkills = resume.skills.filter((item) => item.visible && item.name.trim());
   const accent = design.accentColor;
-  return <article className={`resume-paper font-${design.fontFamily.toLowerCase()}`} style={{ "--accent": accent } as React.CSSProperties}>
+  return <article className={`resume-paper font-${design.fontFamily.toLowerCase()}`} style={{ "--accent": accent } as CSSProperties}>
     <header className="paper-header">
       {design.showPhoto && p.photo.dataUrl ? <img className="resume-photo" src={p.photo.dataUrl} alt={p.photo.alt || "Profile"} /> : null}
       <h1>{fullName}</h1>
@@ -69,7 +69,7 @@ export default function App() {
   const [previewMobile, setPreviewMobile] = useState(false);
   const [saved, setSaved] = useState(true);
   const personal = resume.personalDetails;
-  const setPersonal = (patch: Partial<typeof personal>) => { updatePersonalDetails(patch); setSaved(false); };
+  const setPersonal = (patch: Omit<Partial<typeof personal>, "location" | "photo"> & { location?: Partial<typeof personal.location>; photo?: Partial<typeof personal.photo> }) => { updatePersonalDetails(patch); setSaved(false); };
   const completion = useMemo(() => {
     const checks = [personal.firstName, personal.professionalTitle, personal.email, personal.phone, personal.location.city, personal.summary];
     return Math.round(checks.filter((value) => value.trim()).length / checks.length * 100);
