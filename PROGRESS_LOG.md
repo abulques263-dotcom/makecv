@@ -128,3 +128,11 @@
 - Added a shared unique-ID helper and a Zustand + Immer store with add/update/delete actions for repeatable entries, design updates, section ordering/visibility, validated resume loading, reset, and saved timestamp actions.
 - Files: `src/features/resume-builder/schema/resume.types.ts`, `src/features/resume-builder/schema/resume.schema.ts`, `src/features/resume-builder/utils/id.ts`, `src/features/resume-builder/store/initialResume.ts`, `src/features/resume-builder/store/resumeStore.ts`.
 - These files are foundation source only. React/Vite/Tailwind dependencies, app entry point, UI components, autosave adapter, tests, and browser/build verification have not been completed yet.
+
+
+### React/Vite editor scaffold — Step 4 — 2026-10-25
+- Added React 18, TypeScript, Vite, Tailwind CSS v4, Zustand, Immer, Zod, and Lucide React dependency configuration.
+- Kept the existing static website root and homepage intact by putting the new app in `react-app/`.
+- Added Vite configuration with `react-app/` as the app root and build output configured to `cv-editor/`; public base path is `/makecv/cv-editor/`.
+- Added TypeScript project configs, React entry point, Tailwind stylesheet, minimal scaffold screen, and setup notes in `README-REACT.md`.
+- No React editor or live preview components have been built yet. Dependencies have not been installed and build/typecheck/browser verification has not been run. GitHub Pages publishing of generated `cv-editor/` assets is not configured yet, so this scaffold is not live on the public site.
