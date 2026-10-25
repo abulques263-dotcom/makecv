@@ -145,3 +145,11 @@
 - Fixed the personal-details store action type so nested location and photo fields can be updated partially from individual form fields.
 - Changes are committed to `main`, but dependencies have not been installed and TypeScript/build/browser tests have not been run in this environment. The generated `cv-editor/` bundle is not deployed, so this React editor is not yet live at the public URL.
 - Next: add browser-side draft persistence and resume export/import safeguards, then run a production build and typecheck before configuring Pages deployment.
+
+
+### Resume persistence and data portability — Step 6 — 2026-10-25
+- Added browser-local draft restoration from localStorage and debounced autosave after resume store changes.
+- Added JSON export for editable resume data and JSON import using the existing Zod-backed resume validation in the store. Invalid imports are rejected with a user-facing message.
+- Added small-screen styling for the data controls so the top toolbar remains usable.
+- Persistence is local to the current browser/device; it is not cloud sync and does not transfer drafts between devices. Browser storage can be cleared by the user or browser.
+- Source changes are committed, but TypeScript/build/browser verification has not yet been run and the React editor is still not deployed to GitHub Pages.
