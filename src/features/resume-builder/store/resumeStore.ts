@@ -9,9 +9,13 @@ import { createInitialResume } from "./initialResume";
 import { createId } from "../utils/id";
 
 type Patch<T> = Partial<T>;
+type PersonalDetailsPatch = Omit<Patch<PersonalDetails>, "location" | "photo"> & {
+  location?: Patch<PersonalDetails["location"]>;
+  photo?: Patch<PersonalDetails["photo"]>;
+};
 interface ResumeStore {
   resume: ResumeData;
-  updatePersonalDetails: (patch: Patch<PersonalDetails>) => void;
+  updatePersonalDetails: (patch: PersonalDetailsPatch) => void;
   addExperience: (item?: Partial<ExperienceItem>) => string;
   updateExperience: (id: string, patch: Patch<ExperienceItem>) => void;
   removeExperience: (id: string) => void;
@@ -46,7 +50,7 @@ const touch = (resume: ResumeData) => { resume.metadata.updatedAt = stamp(); };
 export const useResumeStore = create<ResumeStore>()(immer((set) => ({
   resume: createInitialResume(),
 
-  updatePersonalDetails: (patch) => set((state) => {
+  updatePersonalDetails: (patch: PersonalDetailsPatch) => set((state) => {
     const details = state.resume.personalDetails;
     const { location, photo, ...simple } = patch;
     Object.assign(details, simple);
