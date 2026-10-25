@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Type-check and build React editor
-        run: npm run build
+        run: npx vite build
       - name: Assemble existing site plus editor
         shell: bash
         run: |
